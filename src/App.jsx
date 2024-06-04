@@ -76,23 +76,23 @@ const App = () => (
         </div>
         
       </Content>
-      <Content style={contentStyle}>
+      <Content id='products' style={contentStyle}>
         <div style={centerStyle}>
            <Products/>
         </div>
       </Content>
       
-      <Content style={{...contentStyle,
+      <Content  style={{...contentStyle,
         backgroundColor: '#F3F3F3',
         position:'relative'
       }}>
         <Divider/>
-        <div style={centerStyle}>
+        <div id="api-status" style={centerStyle}>
           <APIStatus/>
         </div>
       </Content>
-      <Content style={contentStyle}>
-        <div style={centerStyle}>
+      <Content  style={contentStyle}>
+        <div id='about' style={centerStyle}>
           <About/>
         </div>
       </Content>

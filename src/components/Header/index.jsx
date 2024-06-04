@@ -20,13 +20,13 @@ export const HeaderBlock = () => {
             </Typography.Title>
         </Flex>
         <Space>
-            <Typography.Link style={linkStyle}>
+            <Typography.Link href="#api-status" style={linkStyle}>
                 API Status
             </Typography.Link>
-            <Typography.Link style={linkStyle}>
+            <Typography.Link href="#about" style={linkStyle}>
                 About us
             </Typography.Link>
-            <Typography.Link style={linkStyle}>
+            <Typography.Link href="#products" style={linkStyle}>
                 Products
             </Typography.Link>
         </Space>
