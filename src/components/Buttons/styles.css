@@ -16,6 +16,7 @@ button {
     width: 120px;
     height: 35px;
     color: #FFFFFF;
+
     &:hover {
         box-shadow: 0px 0px 15px 0px #9FDDFA;
         background-color: #5AC8FA;
@@ -58,5 +59,28 @@ button {
 
     } 
 }
-  
+.btn-tg{
+        width: 140px;
+        height: 35px;
+        background-color: #FFFFFF;
+        
+        color: #9579F0;
+        font-size: 16px;
+        font-weight: 500;
+
+
+        align-items: center;
+        justify-content: space-around;
+        display: flex;
+
+        &:active {
+            border: 1px solid #9579F0;
+            box-shadow: 0px 0px 15px 0px #E1E1E1;
+
+        }
+
+        &:hover {
+            border: 1px solid #9579F0;
+        }
+  }
 

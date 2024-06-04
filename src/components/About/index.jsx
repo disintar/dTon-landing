@@ -19,7 +19,7 @@ import starIcon from './assets/star.png'
 const cardStyle = {
     border:'1px solid #CACACA',
     borderRadius: 10,
-    padding: '20px 25px',
+    padding: '20px',
     height:'100%'
 
 }
@@ -100,7 +100,7 @@ export const About = () => {
                 <Col span={16}>
                     <Flex vertical gap={10} style={{height: '100%'}}>
                     <Row gutter={10}>
-                        <Col xl={14} xs={24} > 
+                        <Col xl={15} xs={24} > 
                             <Flex style={{...cardStyle, backgroundColor:'#9579F0', position:'relative'}} vertical justify='space-between'>
                                 <Typography style={{fontSize: 18, marginTop:45, color: '#FFFFFF'}}>
                                     We provide data for best projects</Typography>
@@ -112,7 +112,7 @@ export const About = () => {
                                 </Flex>
                             </Flex>
                         </Col>
-                        <Col span={10}> 
+                        <Col span={9}> 
                             <Flex gap={20} style={{...cardStyle, height: '100%'}} vertical align="center" justify="center">
                                 <img src={collectionsImg} style={{height: 62, objectFit: 'contain'}}/>
                                 <Typography style={titleStyle}>

@@ -9,8 +9,18 @@ import { Products } from './components/Products';
 import { Divider } from './components/Divider';
 import { APIStatus } from './components/APIStatus';
 import { About } from './components/About';
+import { AlwaysInTouch } from './components/AlwaysInTouch';
+import { FooterLine } from './components/FooterLine';
 
 const { Header, Footer, Content } = Layout;
+
+const headerStyle = {
+    position: 'sticky',
+    top: 0,
+    width: '100%',
+    height: 81,
+    zIndex: 1,
+}
 
 const contentStyle = {
   textAlign: 'center',
@@ -18,9 +28,7 @@ const contentStyle = {
 };
 
 const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#4096ff',
+  padding: 0
 };
 
 const layoutStyle = {
@@ -53,13 +61,7 @@ const App = () => (
   >
   <Flex gap="middle" wrap>
     <Layout style={layoutStyle}>
-      <Header style={{
-            position: 'sticky',
-            top: 0,
-            width: '100%',
-            height: 81,
-            zIndex: 1,
-        }}>
+      <Header style={headerStyle}>
             <div style={{
                 ...centerStyle,
                 height: '100%'
@@ -81,8 +83,8 @@ const App = () => (
       </Content>
       
       <Content style={{...contentStyle,
-      backgroundColor: '#F3F3F3',
-      position:'relative'
+        backgroundColor: '#F3F3F3',
+        position:'relative'
       }}>
         <Divider/>
         <div style={centerStyle}>
@@ -94,7 +96,10 @@ const App = () => (
           <About/>
         </div>
       </Content>
-      <Footer style={footerStyle}>Footer</Footer>
+      <Footer style={footerStyle}>
+        <AlwaysInTouch/>
+        <FooterLine/>
+      </Footer>
     </Layout>
   </Flex>
   </ConfigProvider>

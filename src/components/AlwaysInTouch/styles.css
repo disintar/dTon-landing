@@ -1,0 +1,6 @@
+.always-in-touch{
+    background: url('/public/footer.png');
+    background-size: cover;
+    width: 100%;    
+    padding: 75px;
+}
