@@ -1,0 +1,21 @@
+.divider {
+    transform: rotate(2.76deg);
+    background: content-box linear-gradient(102.51deg, #9473FF 23.43%, #8CCFFF 52.05%, #CB57F3 91.9%),url("data:image/svg+xml;charset=UTF-8,%3csvg width='598' height='245' viewBox='0 0 598 245' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ctext x='30' y='40' fill='red'%3eTEXT GOES HERE%3c/text%3e%3c/svg%3e ");
+    height: 65px;
+    width: 102dvw;
+    min-width: 1100px;
+    position: absolute;
+    top: -32.5px;
+    right: -1dvw;
+    z-index: 2;    
+    border: 3px solid #FFFFFF
+ }
+
+
+.text {
+    margin: 8px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 35px;
+    text-align: left;
+}
