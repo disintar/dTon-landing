@@ -13,17 +13,14 @@ const linkStyle = {
    color: '#FFFFFF'
 }
 const mobileMenuStyle = {
-    position:'fixed',
-    top: 81,
-    height: 'calc(100vh - 81px)',
+    height: '90vh',
     backgroundColor: '#101014',
-    left: 0,
+    paddingTop: 24,
     width: '100%',
-    padding: 24,
     overflow: 'hidden'
 }
 
-const iconStyle = {height:24, width: 24, color: '#fff'}
+const iconStyle = {fontSize: 24, color: '#fff'}
 
 const Links = ({mobile, style}) => {
     return <Flex vertical={mobile} gap={30} style={style}>
@@ -47,10 +44,11 @@ const mobileHiddenStyle = { display: isMobileHeader ? 'none' : 'block'}
 const mobileVisibleStyle = { display: !isMobileHeader ? 'none' : 'flex'}
 const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
 
-    return <Flex
+    return <>
+    <Flex
      justify='space-between'
      align="center"
-     style={{height:'100%', zIndex: 0}} >
+     style={ {zIndex: 0}} >
         <Flex align='baseline' gap={8}>
             <Lottie options={{
                             loop: true,
@@ -69,11 +67,13 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
             <Links style={mobileHiddenStyle}/>
             <BookCall style={mobileHiddenStyle} size="small"/>
             <BurgerIcon onClick={()=> setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
-            {showMenu && <Flex vertical justify='space-between' 
+            
+    </Flex>
+    {showMenu && <Flex vertical justify='space-between'
             style={{ ...mobileVisibleStyle,
              ...mobileMenuStyle}}>
                 <Links mobile />
                 <BookCall style={{alignSelf: 'center', color: '#FFF', width: '100%'}} size="large"/>
             </Flex>}
-    </Flex>
+    </>
 }

@@ -48,7 +48,7 @@ const App = () => {
     top: 0,
     backgroundColor: '#101014',
     width: '100%',
-    height: 81,
+    height: 'auto',
     zIndex: 1,
     ...(isMobile ? {padding: 0} : {})
 }
