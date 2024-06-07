@@ -1,6 +1,8 @@
 import React from "react"
-import logo from './images/logo.svg'
+import { dton_logo } from './logo'
 import { Flex, Space, Typography, Button } from "antd"
+import Lottie from "react-lottie"
+import { BookCall } from "../Buttons"
 
 const linkStyle = {
    fontSize: 16,
@@ -14,7 +16,16 @@ export const HeaderBlock = () => {
      align="center"
      style={{height:'100%'}} >
         <Flex align="center" gap={8}>
-            <img src={logo}/>
+        <Lottie options={{
+                        loop: true,
+                        autoplay: true,
+                        animationData: dton_logo,
+                        rendererSettings: {
+                            preserveAspectRatio: 'xMidYMid slice'
+                            }
+                        }}
+                        height={50}
+                        width={50}/>
             <Typography.Title style={{color: '#FFFFFF'}}>
                 dTon
             </Typography.Title>
@@ -31,6 +42,6 @@ export const HeaderBlock = () => {
             </Typography.Link>
         </Space>
 
-        <Button style={{width: 120, height: 35, backgroundColor: '#9579F0'}} type='primary'>Profile</Button>
+        <BookCall size="small"/>
     </Flex>
 }

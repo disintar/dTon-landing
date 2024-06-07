@@ -12,12 +12,13 @@ const textStyle = {
 }
 
 export const FooterLine = () => {
-    return <Flex style={{height: 50, backgroundColor:'#101014'}} justify='space-around' align='center'>
+    return <Flex style={{height: 50, backgroundColor:'#101014'}} 
+    justify='space-around' align='center'>
         <Flex gap={25}>
-            <Typography.Link href="#" style={textStyle}>
+            <Typography.Link href="/" style={textStyle}>
                 Terms
             </Typography.Link>
-            <Typography.Link href="#" style={textStyle}>
+            <Typography.Link href="/" style={textStyle}>
                 Privacy
             </Typography.Link>
             <Typography.Link href="/" style={textStyle}>
