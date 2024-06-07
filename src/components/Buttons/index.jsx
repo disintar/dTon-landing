@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-export const BookCall = ({size = 'small'}) => {
+export const BookCall = ({style={}, size = 'small'}) => {
 
     const sizes = {
         'large': {
@@ -17,12 +17,12 @@ export const BookCall = ({size = 'small'}) => {
         },
     }
 
-    return <button style={sizes[size]} className='btn-primary' >
+    return <button style={{...sizes[size], ...style }} className='btn-primary' >
        Book Call
     </button>
 }
 
-export const OpenTheDocumentation = ({size = 'small'}) => {
+export const OpenTheDocumentation = ({style = {},size = 'small'}) => {
     const sizes = {
         'large': {
             width: 260,
@@ -39,23 +39,23 @@ export const OpenTheDocumentation = ({size = 'small'}) => {
     }
     
     return <button
-            style={sizes[size]}
+            style={{...sizes[size], ...style}}
             className='btn-primary outline'>
         Open the documentation
     </button>
 }
 
-export const GoToStatusPage = () => {
+export const GoToStatusPage = ({style}) => {
     return <button style={{width: 192,
         height: 45,
         fontWeight:600,
         fontSize: 18,
         color: '#9579F0',
-        borderColor: '#9579F0' }} className='btn-primary outline'>Go to status page</button>
+        borderColor: '#9579F0', ...style }} className='btn-primary outline'>Go to status page</button>
 }
 
-export const StartUsing = () => {
-    return <button className='btn-blue'>Start using</button>
+export const StartUsing = ({style}) => {
+    return <button style={style} className='btn-blue'>Start using</button>
 }
 
 export const Dtontech = () => {

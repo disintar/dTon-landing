@@ -3,8 +3,19 @@ import { assetImage, products } from "./products"
 import advIcon from '../../assets/icons/adv.svg'
 import { BookCall, OpenTheDocumentation, StartUsing } from "../Buttons"
 import { Lib } from "./Lib"
+import { useWindowSize } from "../../helpers/useWindowSize"
 
 const Buttons = () => {
+    const {isMobile} = useWindowSize()
+    if (isMobile){
+        return <Flex vertical gap={10} flex={1} style={{width: '100%', marginTop: 16}}>
+            <Flex gap={10} flex={1}>
+                <BookCall style={{width:'100%'}} size="small"/>
+                <StartUsing style={{width:'100%'}}/>
+            </Flex>
+            <OpenTheDocumentation style={{width:'100%'}} size="small"/>
+        </Flex>
+    }
     return <Space wrap='wrap' align="center" style={{ alignItems: 'center', justifyContent:'center', marginTop: 15}}>
             <BookCall size="small"/>
             <OpenTheDocumentation size="small"/>
@@ -15,7 +26,7 @@ export const ProductBlock = ({active}) => {
     const info = products.find(item => item.id === active)?.info
     
     if(active === 5) {
-        return <Flex gap={20} align='center' flex={1} vertical>
+        return <Flex gap={20} align='center' style={{width: '100%'}} flex={1} vertical>
             {info.libs.map(Lib)}
             <Buttons/>
         </Flex>

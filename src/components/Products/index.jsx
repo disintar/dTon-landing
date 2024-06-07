@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { assetImage, products } from "./products"
 import './styles.css'
 import { ProductBlock } from "./ProductBlock"
+import { useWindowSize } from "../../helpers/useWindowSize"
 
 const textStyle = {
     fontSize: '18px',
@@ -24,13 +25,23 @@ const activeStyle = {
     boxShadow:' 0px 0px 10px 0px #CDBEFF69',
 }
 
+
+
 export const Products = () => {
     const [active, setActive] = useState(1)
+    const {isMobile} = useWindowSize()
 
 const Product = ({id, title, image}) => {
-    
-   return <div key={id} className="product"
-    style={active === id ? activeStyle : {}}
+
+    const productStyle = {
+    width: isMobile ? '100%' : 360,
+        margin: '5px 0',
+        height: '70px',
+        cursor: 'pointer',
+}
+
+   return <Flex flex={1} key={id}
+    style={{...productStyle, ...active === id ? activeStyle : {}}}
     onClick={() => setActive(id)}>
     <Flex style={{padding: 15}} align="center">
         <img style={logoStyle} src={assetImage(image)}></img>
@@ -38,10 +49,10 @@ const Product = ({id, title, image}) => {
             {title}
         </Typography>
     </Flex>
-</div>
+</Flex>
 }
 
-return <Flex vertical align='flex-start' style={{height: '70vh', marginBottom: 124}}>
+return <Flex vertical align='flex-start' style={{height: '100%', marginBottom: 124}}>
     <Typography.Title style={{
             margin: '75px 0 35px 0',
             color: '#9579F0'
@@ -49,10 +60,14 @@ return <Flex vertical align='flex-start' style={{height: '70vh', marginBottom: 1
        Products
         </Typography.Title>
         <Flex  style={{width: '100%'}}>
-            <Flex vertical>
-                {products.map(Product)}
+            <Flex vertical flex={1}>
+                {products.map(item => {return isMobile ? <Flex gap={15} vertical flex={1}>
+                    <Product {...item}/>
+                   {item.id === active && <ProductBlock active={active}/>}
+                </Flex> : <Product {...item}/>})}
+                
             </Flex>
-            <ProductBlock active={active}/>
+            {!isMobile && <ProductBlock active={active}/>}
         </Flex>
 
 </Flex>

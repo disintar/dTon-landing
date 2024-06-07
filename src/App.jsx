@@ -11,16 +11,10 @@ import { APIStatus } from './components/APIStatus';
 import { About } from './components/About';
 import { AlwaysInTouch } from './components/AlwaysInTouch';
 import { FooterLine } from './components/FooterLine';
+import { useWindowSize } from './helpers/useWindowSize';
 
 const { Header, Footer, Content } = Layout;
 
-const headerStyle = {
-    position: 'sticky',
-    top: 0,
-    width: '100%',
-    height: 81,
-    zIndex: 1,
-}
 
 const contentStyle = {
   textAlign: 'center',
@@ -35,15 +29,31 @@ const layoutStyle = {
   overflow: 'hidden',
   width: '100%',
 };
-
-const centerStyle = {
+const mobileCenterStyle = {
+  padding: '0 24px',
+  width: '100%'
+}
+const desktopCenterStyle = {
   width: 'min(calc(100dvw - 280px), 960px)',
   maxWidth: 'min(calc(100dvw - 280px), 960px)',
   margin: 'auto',
 }
 
-const App = () => (
-  <ConfigProvider
+const App = () => {
+  const {isMobile} = useWindowSize();
+  const centerStyle = isMobile ? mobileCenterStyle: desktopCenterStyle
+
+  const headerStyle = {
+    position: 'sticky',
+    top: 0,
+    backgroundColor: '#101014',
+    width: '100%',
+    height: 81,
+    zIndex: 1,
+    ...(isMobile ? {padding: 0} : {})
+}
+
+return <ConfigProvider
     theme={{
       token: {
         fontFamily: 'Poppins',
@@ -103,6 +113,6 @@ const App = () => (
     </Layout>
   </Flex>
   </ConfigProvider>
-);
+}
 
 export default App;
