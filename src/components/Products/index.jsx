@@ -61,7 +61,7 @@ return <Flex vertical align='flex-start' style={{height: '100%', marginBottom: 1
         </Typography.Title>
         <Flex  style={{width: '100%'}}>
             <Flex vertical style={{width: '100%'}} flex={1}>
-                {products.map(item => {return isMobile ? <Flex gap={15} vertical flex={1}>
+                {products.map(item => {return isMobile ? <Flex key={item.id} gap={15} vertical flex={1}>
                     <Product {...item}/>
                    {item.id === active && <ProductBlock active={active}/>}
                 </Flex> : <Product {...item}/>})}
