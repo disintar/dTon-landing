@@ -55,7 +55,7 @@ return <Flex vertical style={{width: '100%'}} flex={1} align="center">
     <img style={{
         objectFit: 'contain',
         height: 265,
-        width: 480
+        width: '100%',
     }} src={assetImage(image)}/>
     <Buttons href={href}/>
 </Flex>

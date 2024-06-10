@@ -14,7 +14,7 @@ const statusData = [{
     resource: 'Dton.io',
     metrics: [
         {title: 'Uptime / 24h', value: '100.000%'},
-        {title: 'Uptime / 24h', value: '100.000%'},
+        {title: 'Uptime / 7d', value: '100.000%'},
         {title: 'Call Latency', value: '95ms'},
         {title: 'Index Latency', value: '12.2s'}
     ]},

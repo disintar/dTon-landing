@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { dton_logo } from './logo'
 import { Flex, Space, Typography, Button } from "antd"
 import Lottie from "react-lottie"
-import { BookCall, ProfileButton } from "../Buttons"
+import { BookCall, ConnectAndTry } from "../Buttons"
 import {useWindowSize} from '../../helpers/useWindowSize'
 import {MenuOutlined, CloseOutlined} from '@ant-design/icons'
 const BURGER_BREAKPOINT = 835
@@ -65,7 +65,7 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
             </div>
         </Flex>
             <Links style={mobileHiddenStyle}/>
-            <ProfileButton style={mobileHiddenStyle} size="small"/>
+            <ConnectAndTry style={mobileHiddenStyle} size="small"/>
             <BurgerIcon onClick={()=> setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
             
     </Flex>
@@ -73,7 +73,7 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
             style={{ ...mobileVisibleStyle,
              ...mobileMenuStyle}}>
                 <Links mobile />
-                <ProfileButton style={{alignSelf: 'center', color: '#FFF', width: '100%', fontSize: 18, fontWeight: 500}}/>
+                <ConnectAndTry style={{alignSelf: 'center', color: '#FFF', width: '100%', fontSize: 18, fontWeight: 500}}/>
             </Flex>}
     </>
 }
