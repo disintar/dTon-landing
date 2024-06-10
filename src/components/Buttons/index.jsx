@@ -21,8 +21,14 @@ export const BookCall = ({style={}, size = 'small'}) => {
        Book Call
     </button>
 }
-
-export const OpenTheDocumentation = ({style = {},size = 'small'}) => {
+export const ProfileButton = ({style}) => {
+    return <button style={{ width: 120,
+        height: 35,
+        color: '#FFFFFF',...style}} className='btn-primary' >
+    Profile
+ </button>
+}
+export const Documentation = ({style = {},size = 'small'}) => {
     const sizes = {
         'large': {
             width: 260,
@@ -41,7 +47,7 @@ export const OpenTheDocumentation = ({style = {},size = 'small'}) => {
     return <button
             style={{...sizes[size], ...style}}
             className='btn-primary outline'>
-        Open the documentation
+        Documentation
     </button>
 }
 

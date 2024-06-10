@@ -47,13 +47,16 @@ export const products = [
         image: 'Opensource.png',
         info: {
             libs: [
-                {title: 'tonpy', link: '', stars: '17', color: '#FF95C7'},
-                {title: 'tontvmpreply', link: '', stars: '17', color: '#9BFBF1'},
-                {title: 'toncli', link: '', stars: '134', color: '#CEC2FF'},
-                {title: 'ton-k8s', link: '', stars: '23', color: '#6BF090'},
+                {title: 'tonpy', link: '', stars: '17', color: '#FF95C7', href: 'https://github.com/disintar/tonpy'},
+                {title: 'tontvmpreply', link: '', stars: '17', color: '#9BFBF1', href: 'https://github.com/disintar/TonTVMReplay'},
+                {title: 'toncli', link: '', stars: '134', color: '#CEC2FF', href: 'https://github.com/disintar/toncli'},
+                {title: 'ton-k8s', link: '', stars: '23', color: '#6BF090', href: 'https://github.com/disintar/ton-k8s'},
             ]
         }
     }
 
 
 ]
+
+
+

@@ -1,7 +1,7 @@
 import { Flex, Space, Typography } from "antd"
 import { assetImage, products } from "./products"
 import advIcon from '../../assets/icons/adv.svg'
-import { BookCall, OpenTheDocumentation, StartUsing } from "../Buttons"
+import { BookCall, Documentation, StartUsing } from "../Buttons"
 import { Lib } from "./Lib"
 import { useWindowSize } from "../../helpers/useWindowSize"
 
@@ -13,13 +13,13 @@ const Buttons = () => {
                 <BookCall style={{width:'100%'}} size="small"/>
                 <StartUsing style={{width:'100%'}}/>
             </Flex>
-            <OpenTheDocumentation style={{width:'100%'}} size="small"/>
+            <Documentation style={{width:'100%'}} size="small"/>
         </Flex>
     }
     return <Space wrap='wrap' align="center" style={{ alignItems: 'center', justifyContent:'center', marginTop: 15}}>
-            <BookCall size="small"/>
-            <OpenTheDocumentation size="small"/>
-            <StartUsing/>
+                <BookCall size="small"/>
+                <StartUsing/>
+                <Documentation size="small"/>
             </Space>}
 
 export const ProductBlock = ({active}) => {
@@ -28,7 +28,6 @@ export const ProductBlock = ({active}) => {
     if(active === 5) {
         return <Flex gap={20} align='center' style={{width: '100%'}} flex={1} vertical>
             {info.libs.map(Lib)}
-            <Buttons/>
         </Flex>
         
     }

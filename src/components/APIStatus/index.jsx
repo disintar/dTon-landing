@@ -30,12 +30,12 @@ const statusData = [{
 
 export const StatusCard = ({statusData, button }) => {
     return <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
-        <Flex style={{width: '100%'}} align='stretch' justify='space-between'>
-        <Flex vertical>
-        <Typography.Title level={2} style={{color: '#5AC8FA', margin: 0}}>{statusData?.resource}</Typography.Title>
-        <Typography.Title level={3} style={{margin: 0}}>Status metrics</Typography.Title>
-        </Flex>
-        {button}
+        <Flex style={{width: '100%'}} justify='space-between'>
+            <Flex vertical align='start'>
+                <Typography.Title level={2} style={{color: '#5AC8FA', margin: 0}}>{statusData?.resource}</Typography.Title>
+                <Typography.Title level={3} style={{margin: 0}}>Status metrics</Typography.Title>
+            </Flex>
+            {button}
         </Flex>
         <Row style={blockStyle}>
             {statusData?.metrics.map(({title, value})=> {
