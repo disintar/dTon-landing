@@ -34,7 +34,7 @@ export const Products = () => {
 const Product = ({id, title, image}) => {
 
     const productStyle = {
-    width: isMobile ? '100%' : 360,
+        width: isMobile ? '100%' : 360,
         margin: '5px 0',
         height: '70px',
         cursor: 'pointer',
@@ -42,7 +42,7 @@ const Product = ({id, title, image}) => {
 
    return <Flex flex={1} key={id}
     style={{...productStyle, ...active === id ? activeStyle : {}}}
-    onClick={() => setActive(id)}>
+        onClick={() => setActive(id)}>
     <Flex style={{padding: 15}} align="center">
         <img style={logoStyle} src={assetImage(image)}></img>
         <Typography style={textStyle}>
@@ -60,7 +60,7 @@ return <Flex vertical align='flex-start' style={{height: '100%', marginBottom: 1
        Products
         </Typography.Title>
         <Flex  style={{width: '100%'}}>
-            <Flex vertical flex={1}>
+            <Flex vertical style={{width: '100%'}} flex={1}>
                 {products.map(item => {return isMobile ? <Flex gap={15} vertical flex={1}>
                     <Product {...item}/>
                    {item.id === active && <ProductBlock active={active}/>}

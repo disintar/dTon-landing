@@ -9,6 +9,7 @@ export const products = [
             title: 'Custom requests to blockchain database',
             advantages: ['Small teams','Enterprise' ],
             image: 'GraphImg.png',
+            href: 'https://dton.io/graphql',
         }
     },
     {
@@ -19,6 +20,7 @@ export const products = [
             title: 'Stable private liteclient with rate limits',
             advantages: ['Small teams','Enterprise' ],
             image: 'liteserver.png',
+            href: 'https://t.me/liteserver_bot',
         }
     },
     {
@@ -29,6 +31,7 @@ export const products = [
             title: 'Custom analytics and dashboards for projects',
             advantages: ['Enterprise' ],
             image: 'forum.png',
+            href: 'https://t.me/dtonforum',
         }
     },
     {
@@ -39,6 +42,7 @@ export const products = [
             title: 'TON NFT mint, custom smart contracts, integrations',
             advantages: ['Enterprise'],
             image: 'disintar.png',
+            href: 'https://disintar.io',
         }
     },
     {
