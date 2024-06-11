@@ -72,7 +72,7 @@ const {"24h": day, "7d": week, index_latency, call_latency, available } = status
                 <Typography.Title level={2} style={{color: '#5AC8FA', margin: 0}}>{resource}</Typography.Title>
                 <Typography.Title level={3} style={{margin: 0}}>Status metrics</Typography.Title>
             </Flex>
-            <Flex vertical align='end' gap={14} justify='space-between'>
+            <Flex vertical align='flex-end' gap={14} justify='flex-end'>
                 {button}
                 <StatusIcon {...getStatus(available)}/>
             </Flex>
@@ -109,31 +109,46 @@ export const APIStatus = () => {
     const {isMobile} = useWindowSize()
     const [siteData, setSiteData ] = useState(emptyData)
     const [botData, setBotData] = useState(emptyData);
+    const [siteDataLoading, setSiteDataLoading] = useState(true)
+    const [botDataLoading, setBotDataLoading] = useState(true)
+    const [error, setError] = useState(false)
 
-    useEffect(()=> {
-        const fetchData = (url, action) => {
-            fetch(url,{mode:'cors'})
-        .then(response => {
-            console.log(response)
-            if (!response.ok) {
-            throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Обработка полученных данных
-            action(data)
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('There was a problem with your fetch operation:', error);
-        });
-        }
+    const fetchData = (url, action, setLoading) => {
+        console.log('fetch', url)
+        fetch(url,{mode:'cors'})
+                .then(response => {
+                    if (!response.ok) {
 
-        fetchData(SITE_STATUS_URL, setSiteData)
-        fetchData(BOT_STATUS_URL, setBotData)
-        
-    },[])
+                    setLoading(false)
+                    throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    action(data)
+                    setLoading(false)
+                })
+                .catch(error => {
+                    console.error('There was a problem with your fetch operation:', error);
+                    setError(error.message)
+                });
+    }
+
+    const fetchBoth = () => {
+        setBotDataLoading(true)
+        setSiteDataLoading(true)
+        fetchData(SITE_STATUS_URL, setSiteData, setSiteDataLoading)
+        fetchData(BOT_STATUS_URL, setBotData, setBotDataLoading)
+    }
+    
+
+        useEffect(()=> {
+            fetchBoth()
+            const myInterval = setInterval(fetchBoth, 10000);
+            return () => {
+                clearInterval(myInterval);
+            };
+        },[])
 
     return <Flex vertical style={{ height: '100%', marginBottom: 75 }}>
             <Typography.Title style={{
@@ -152,6 +167,7 @@ export const APIStatus = () => {
             resource='@liteserver.bot'
             statusData={botData}/>
             {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
+            {error && <Typography.Title level={3} style={{color: 'red'}}>{error}</Typography.Title>}
         </Flex>
     </Flex>
 }
