@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react"
-import { Col, Flex, Row, Spin, Typography } from "antd"
+import { Col, Flex, Row, Space, Spin, Typography } from "antd"
 import { GoToStatusPage } from "../Buttons"
 import { useWindowSize } from "../../helpers/useWindowSize"
-import { LoadingOutlined } from "@ant-design/icons"
+import './status-circle.css'
+
+const emptyData = {
+    '7d': 0,
+    '24h': 0,
+    available: 0,
+    'call_latency': 0,
+    'index_latency': 0
+}
 
 const blockStyle = {
     boxShadow: '0px 8px 25px 0px #A5A5A54D',
@@ -17,7 +25,46 @@ const valueStyle = {margin: 0}
 const SITE_STATUS_URL = 'https://status.dton.io/api/v1/simple/liteserver/';
 const BOT_STATUS_URL = 'https://status.dton.io/api/v1/simple/graphql/';
 
+const statusIcons = {
+    online: {
+        color: 'green',
+        title: 'Operational',
+    },
+    offline: {
+        color: 'red',
+        title: 'Major outage',
+    },
+    pending: {
+        color: 'yellow',
+        title: 'Partial outage',
+        textColor: '#626262'
+    }
+}
+
 export const StatusCard = ({statusData, button, resource }) => {
+
+const {"24h": day, "7d": week, index_latency, call_latency, available } = statusData;
+
+
+
+    const StatusIcon = ({color, title, textColor}) => {
+        return <Flex align="center" justify='space-around' gap={8}>
+            <Flex style={{width: 20, height: 20}}>
+            <div className={`circle ${color}`}/>
+            </Flex>
+            <Typography style={{color: textColor || color}}>{title}</Typography>
+        </Flex>
+    }
+
+    const getStatus = (available) => {
+        if(!available){
+            return statusIcons['pending']
+        }
+        else if(available === -1){
+            return statusIcons['offline']
+        }
+        return statusIcons['online']
+    }
 
     return <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
         <Flex style={{width: '100%'}} justify='space-between'>
@@ -25,46 +72,49 @@ export const StatusCard = ({statusData, button, resource }) => {
                 <Typography.Title level={2} style={{color: '#5AC8FA', margin: 0}}>{resource}</Typography.Title>
                 <Typography.Title level={3} style={{margin: 0}}>Status metrics</Typography.Title>
             </Flex>
-            {button}
+            <Flex vertical align='end' gap={14} justify='space-between'>
+                {button}
+                <StatusIcon {...getStatus(available)}/>
+            </Flex>
         </Flex>
-        {statusData?.available ?
         <Row style={blockStyle}>
                  <Col md={6} sm={12} span={12}>
                     <Flex gap={5} vertical>
-                        <Typography.Title style={valueStyle} level={2}>{statusData['24h']} %</Typography.Title>
+                       {day ? <Typography.Title style={valueStyle} level={2}>{day.toFixed(3)} %</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Uptime / 24h</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
                     <Flex gap={5} vertical>
-                        <Typography.Title style={valueStyle} level={2}>{statusData['7d']} %</Typography.Title>
+                        {week ? <Typography.Title style={valueStyle} level={2}>{week.toFixed(3)} %</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Uptime / 7d</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
                     <Flex gap={5} vertical>
-                        <Typography.Title style={valueStyle} level={2}>{statusData['index_latency']} ms</Typography.Title>
+                      {index_latency ? <Typography.Title style={valueStyle} level={2}>{index_latency} ms</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Call Latency</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
                     <Flex gap={5}  vertical>
-                        <Typography.Title style={valueStyle} level={2}>{statusData['call_latency']} s</Typography.Title>
+                       {call_latency ? <Typography.Title style={valueStyle} level={2}>{call_latency} s</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Index Latency</Typography.Text>
                     </Flex>
                 </Col>
-        </Row> : <Flex justify="center" style={blockStyle}> <Typography.Title style={valueStyle} level={2}>NOT AVAILABLE</Typography.Title></Flex>}
+        </Row>
     </Flex>
 }
 export const APIStatus = () => {
     const {isMobile} = useWindowSize()
-    const [siteData, setSiteData ] = useState()
-    const [botData, setBotData] = useState();
+    const [siteData, setSiteData ] = useState(emptyData)
+    const [botData, setBotData] = useState(emptyData);
 
     useEffect(()=> {
         const fetchData = (url, action) => {
-            fetch(url,{mode:'no-cors'})
+            fetch(url,{mode:'cors'})
         .then(response => {
+            console.log(response)
             if (!response.ok) {
             throw new Error('Network response was not ok');
             }
@@ -94,9 +144,9 @@ export const APIStatus = () => {
        API Status
         </Typography.Title>
         <Flex gap='large' align="center" vertical>
-            <StatusCard button={isMobile? null :
-                <GoToStatusPage/>
-            } resource='Dton.io'
+            <StatusCard
+             button={isMobile ? null : <GoToStatusPage/>}
+             resource='Dton.io'
              statusData={siteData} />
             <StatusCard 
             resource='@liteserver.bot'

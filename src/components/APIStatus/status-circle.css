@@ -1,0 +1,44 @@
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    animation: pulse 12s alternate infinite;
+  }
+  .circle.green {
+    background-color: #32E350;
+  }
+  .circle.yellow {
+    background-color: #FBFF00;
+  }
+  .circle.red {
+    background-color: #FF7878;
+  }
+
+  @keyframes pulse {
+    0% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    40% {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+    60% {
+      transform: scale(0.4);
+      opacity: 0.6;
+    }
+    80% {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+  }
+
