@@ -57,9 +57,10 @@ export const Documentation = ({style = {},size = 'small'}) => {
             fontWeight: 600,
         },
         'small': {
-            width: 234,
+            width: 250,
             height: 35,
             color: '#9579F0',
+            fontWeight: 500,
             borderColor: '#9579F0'
         },
     }
