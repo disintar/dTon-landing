@@ -41,7 +41,7 @@ return <Flex vertical style={{width: '100%'}} flex={1} align="center">
     </Typography.Title>
     <Flex style={{marginBottom: 10}}>
     {advantages.map(item => {
-        return <Flex key={item} justify="center" align="center" style={{margin: '10px 15px'}}>
+        return <Flex key={item} justify="center" align="center" style={{margin: '10px 0 15px 15px'}}>
             <img src={advIcon} style={{width: 24, marginRight: 8}}/>
             <Typography style={{
                 fontSize: 16,
