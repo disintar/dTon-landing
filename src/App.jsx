@@ -57,6 +57,7 @@ return <ConfigProvider
     theme={{
       token: {
         fontFamily: 'Poppins',
+        colorText:'#252525',
         borderRadius: 10,
         fontSizeHeading1: 60,
         colorBgLayout: '#FFFFFF',

@@ -12,7 +12,6 @@ body {
 .btn-blue:hover {
     box-shadow: 0px 0px 15px 0px #9FDDFA;
     background-color: #5AC8FA;
-    border: 1px solid #33AFE5;
 }
 
 .btn-blue:active {

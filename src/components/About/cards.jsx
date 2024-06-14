@@ -1,8 +1,6 @@
 import {  Flex, Typography } from "antd"
 import onImg from './assets/on.png'
 import offImg from './assets/off.png'
-import sinceImg from './assets/Since2022.png'
-import sinceMImg from './assets/SinceM2022.png'
 import aImg from './assets/Vector.png'
 import firstImg from './assets/first.png'
 import img70k from './assets/70k.png'
@@ -15,6 +13,8 @@ import collectionsImg from './assets/collections.png'
 import downloadIcon from './assets/download.png'
 import img7 from './assets/7.png'
 import starIcon from './assets/star.png'
+
+import './styles.css'
 
 const cardStyle = {
     border:'1px solid #CACACA',
@@ -66,19 +66,26 @@ export const Volume2M = () => {
 }
 
 export const Since = ({mobile}) => {
-    return  <Flex flex={1} style={cardStyle} align="center" justify="center"  > 
-    {mobile ? <img src={sinceMImg} style={{width: 100}}/>
-    : <img src={sinceImg} style={{width: 113, height: 35}}/>}
+
+    const textStyle = {
+        fontSize: 24,
+        lineHeight: '35px',
+        fontWeight: 600
+    }
+    return  <Flex flex={1} style={cardStyle} align="center" justify="center"> 
+    {mobile ? <Flex vertical><div style={textStyle} className="gradient">Since</div>
+    <div style={textStyle} className="gradient">2022</div></Flex> :  <div style={textStyle} className="gradient">Since 2022</div>}
 </Flex>
 }
 
 export const ACard = ({style}) => {
-   return  <Flex flex={1} align="center" justify='space-between' gap={15} style={{...cardStyle, ...style}}> 
+   return  <Flex flex={6} align="center" justify='center' gap={15} style={{...cardStyle, ...style}}> 
                             <img src={aImg} style={{
                                 width: 54,
-                                height: 60
+                                height: 60,
+                                justifySelf:'start'
                             }}/>
-                            <Typography.Paragraph ellipsis={{rows: 3}}  style={{...titleStyle, margin: 0}}>
+                            <Typography.Paragraph ellipsis={{rows: 3}}  style={{...titleStyle, maxWidth: 250, margin: 0}}>
                                 Custom smart contracts and standarts
                             </Typography.Paragraph>
                         </Flex>
@@ -86,10 +93,10 @@ export const ACard = ({style}) => {
 
 export const GrantsCard = () => {
     return <Flex vertical gap={10} align="start" style={cardStyle}> 
-    <img src={img120k} style={{height:50, objectFit:'contain'}} />
-    <Typography style={{fontFamily:'Manrope', fontSize: 20, textAlign:'left'}}>TON Foundation Core Developers  </Typography>
-    <img src={img70k}  style={{height:50, objectFit:'contain'}}/> 
-    <Typography style={{fontFamily:'Manrope', fontSize: 20}}>Grants & Rewards</Typography>
+    <div style={{fontSize: 45, lineHeight: '54px'}} className="gradient">$120k</div>
+    <Typography style={{fontFamily:'Manrope', color: '#908C8C', fontSize: 20, textAlign:'left'}}>TON Foundation Core Developers  </Typography>
+    <div style={{fontSize: 45, lineHeight: '54px', }} className="gradient">$70k</div>
+    <Typography style={{fontFamily:'Manrope',color: '#908C8C', fontSize: 20}}>Grants & Rewards</Typography>
 </Flex>
 }
 

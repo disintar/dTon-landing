@@ -48,7 +48,8 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
     <Flex
      justify='space-between'
      align="center"
-     style={ {zIndex: 0}} >
+
+     style={{paddingTop: 16}} >
         <Flex align='baseline' gap={8}>
             <Lottie options={{
                             loop: true,

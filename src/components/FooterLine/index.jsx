@@ -20,25 +20,25 @@ export const FooterLine = () => {
     style={{height: isMobile ? 'auto' : 50, padding: 25, backgroundColor:'#101014'}} 
     justify='space-around' align={isMobile ? 'end' :'center'}>
         <Flex  gap={25}>
-            <Typography.Link href="/" style={textStyle}>
+            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Terms
             </Typography.Link>
-            <Typography.Link href="/" style={textStyle}>
+            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Privacy
             </Typography.Link>
-            <Typography.Link href="/" style={textStyle}>
+            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Support
             </Typography.Link>
         </Flex>
         <Flex gap={25}>
-           <img src={tgIcon}/>
-           <img src={ghIcon}/>
-           <img src={xIcon}/>
-           <img src={emailIcon}/>
+           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://t.me/dtonforum', '_blank')} src={tgIcon}/>
+           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://github.com/disintar', '_blank')} src={ghIcon}/>
+           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://x.com/disintar_io', '_blank')} src={xIcon}/>
+           <img style={{cursor: 'pointer'}} onClick={()=> window.open('hi@head-labs.com', '_blank')} src={emailIcon}/>
         </Flex>
 
         <Typography.Paragraph style={{...textStyle, margin: 0}}>
-        ©2024 Disintar LLP All Rights Reserved
+        © 2024 Disintar LLP All Rights Reserved
         </Typography.Paragraph>
 
     </Flex>

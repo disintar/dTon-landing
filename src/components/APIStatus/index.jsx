@@ -27,17 +27,19 @@ const BOT_STATUS_URL = 'https://status.dton.io/api/v1/simple/graphql/';
 
 const statusIcons = {
     online: {
-        color: 'green',
+        className: 'green',
+        color: '#32E350',
         title: 'Operational',
     },
     offline: {
-        color: 'red',
+        className: 'red',
+        color: '#FF7878',
         title: 'Major outage',
     },
     pending: {
-        color: 'yellow',
+        className: 'yellow',
         title: 'Partial outage',
-        textColor: '#626262'
+        color: '#626262'
     }
 }
 
@@ -45,14 +47,14 @@ export const StatusCard = ({statusData, button, resource }) => {
 
 const {"24h": day, "7d": week, index_latency, call_latency, available } = statusData;
 
+    const {isMobile} = useWindowSize()
 
-
-    const StatusIcon = ({color, title, textColor}) => {
+    const StatusIcon = ({color, title, className}) => {
         return <Flex align="center" justify='space-around' gap={8}>
             <Flex style={{width: 20, height: 20}}>
-            <div className={`circle ${color}`}/>
+            <div className={`circle ${className}`}/>
             </Flex>
-            <Typography style={{color: textColor || color}}>{title}</Typography>
+            <Typography style={{color}}>{title}</Typography>
         </Flex>
     }
 
@@ -69,8 +71,8 @@ const {"24h": day, "7d": week, index_latency, call_latency, available } = status
     return <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
         <Flex style={{width: '100%'}} justify='space-between'>
             <Flex vertical align='start'>
-                <Typography.Title level={2} style={{color: '#5AC8FA', margin: 0}}>{resource}</Typography.Title>
-                <Typography.Title level={3} style={{margin: 0}}>Status metrics</Typography.Title>
+                <Typography.Title level={isMobile ? 3 : 2} style={{color: '#5AC8FA', margin: 0}}>{resource}</Typography.Title>
+                <Typography.Title level={isMobile ? 4 : 3} style={{margin: 0}}>Status metrics</Typography.Title>
             </Flex>
             <Flex vertical align='flex-end' gap={14} justify='flex-end'>
                 {button}
@@ -80,25 +82,25 @@ const {"24h": day, "7d": week, index_latency, call_latency, available } = status
         <Row style={blockStyle}>
                  <Col md={6} sm={12} span={12}>
                     <Flex gap={5} vertical>
-                       {day ? <Typography.Title style={valueStyle} level={2}>{day.toFixed(3)} %</Typography.Title> : <Spin size="large"/>}
+                       {day ? <Typography.Title style={valueStyle} level={2}>{day.toFixed(2)} %</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Uptime / 24h</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
                     <Flex gap={5} vertical>
-                        {week ? <Typography.Title style={valueStyle} level={2}>{week.toFixed(3)} %</Typography.Title> : <Spin size="large"/>}
+                        {week ? <Typography.Title style={valueStyle} level={2}>{week.toFixed(2)} %</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Uptime / 7d</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
-                    <Flex gap={5} vertical>
-                      {index_latency ? <Typography.Title style={valueStyle} level={2}>{index_latency} ms</Typography.Title> : <Spin size="large"/>}
+                    <Flex gap={5}  vertical>
+                       {call_latency ? <Typography.Title style={valueStyle} level={2}>{call_latency} ms</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Call Latency</Typography.Text>
                     </Flex>
                 </Col>
                 <Col md={6} sm={12} span={12}>
-                    <Flex gap={5}  vertical>
-                       {call_latency ? <Typography.Title style={valueStyle} level={2}>{call_latency} s</Typography.Title> : <Spin size="large"/>}
+                    <Flex gap={5} vertical>
+                      {index_latency ? <Typography.Title style={valueStyle} level={2}>{(index_latency/ 1000).toFixed(2)} s</Typography.Title> : <Spin size="large"/>}
                         <Typography.Text style={textStyle}>Index Latency</Typography.Text>
                     </Flex>
                 </Col>

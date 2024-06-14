@@ -8,7 +8,8 @@ export const BookCall = ({style={}, size = 'small'}) => {
             width: 150,
             height: 50,
             fontSize: 18,
-            fontWeight: 500
+            fontWeight: 500,
+            color: '#FFFFFF'
         },
         'small': {
             width: 120,
@@ -36,7 +37,7 @@ export const ConnectAndTry = ({style,size='small'}) => {
         color: '#FFFFFF',
         ...sizes[size],
         ...style}} 
-        className='btn btn-primary'
+        className='btn btn-primary outline'
         onClick={()=> window.open('https://tech.dton.io/profile','_blank')}>
             <Flex gap={8} align='center' justify='center'>
                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +66,7 @@ export const Documentation = ({style = {},size = 'small'}) => {
     
     return <button
             style={{...sizes[size], ...style}}
+            onClick={() => window.open('https://docs.dton.io/', '_blank')}
             className='btn btn-primary outline'>
         Documentation
     </button>

@@ -12,8 +12,8 @@ const Buttons = ({href}) => {
             <Flex gap={10} flex={1}>
                 <BookCall style={{width:'100%'}} size="small"/>
                 <StartUsing href={href} style={{width:'100%'}}/>
+                <Documentation style={{width:'100%', fontWeight: 500}} size="small"/>
             </Flex>
-            <Documentation style={{width:'100%'}} size="small"/>
         </Flex>
     }
     return <Space wrap='wrap' align="center" style={{ alignItems: 'center', justifyContent:'center', marginTop: 15}}>
@@ -41,7 +41,7 @@ return <Flex vertical style={{width: '100%'}} flex={1} align="center">
     </Typography.Title>
     <Flex style={{marginBottom: 10}}>
     {advantages.map(item => {
-        return <Flex key={item} justify="center" align="center" style={{margin: '0 15px'}}>
+        return <Flex key={item} justify="center" align="center" style={{margin: '10px 15px'}}>
             <img src={advIcon} style={{width: 24, marginRight: 8}}/>
             <Typography style={{
                 fontSize: 16,
