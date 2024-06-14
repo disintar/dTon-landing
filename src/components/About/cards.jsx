@@ -57,7 +57,7 @@ export const Volume3M = () => {
 }
 
 export const Volume2M = () => {
-   return  <Flex vertical gap={15} style={cardStyle}>
+   return  <Flex vertical align="center" justify="center" gap={15} style={cardStyle}>
         <img src={offImg} style={{width: 55}}/>
         <Typography style={titleStyle}>
             $ 2M volume off-chain
