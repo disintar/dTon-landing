@@ -7,15 +7,13 @@
     position: absolute;
     top: -32.5px;
     right: -1dvw;
-    z-index: 2;    
     border: 3px solid #FFFFFF
  }
 
-
-.text {
-    margin: 8px;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 35px;
-    text-align: left;
-}
+.patterns {
+    background:
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 16"><foreignObject width="200px" height="16px"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Poppins,sans-serif;color:white;font-size:12px;">BLOCKCHAIN ANALYTICS</div></foreignObject></svg>') repeat-x;
+    background-position-x: calc(50% + 5px);
+    width:100%;
+    height:30px;
+  }
