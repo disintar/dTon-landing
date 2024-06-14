@@ -96,7 +96,7 @@ export const GrantsCard = () => {
     <div style={{fontSize: 45, lineHeight: '54px'}} className="gradient">$120k</div>
     <Typography style={{fontFamily:'Manrope', color: '#908C8C', fontSize: 20, textAlign:'left'}}>TON Foundation Core Developers  </Typography>
     <div style={{fontSize: 45, lineHeight: '54px', }} className="gradient">$70k</div>
-    <Typography style={{fontFamily:'Manrope',color: '#908C8C', fontSize: 20}}>Grants & Rewards</Typography>
+    <Typography style={{fontFamily:'Manrope',color: '#908C8C', fontSize: 20, textAlign:'start'}}>Grants & Rewards</Typography>
 </Flex>
 }
 
