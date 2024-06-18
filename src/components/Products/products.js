@@ -8,7 +8,7 @@ export const products = [
         info: {
             title: 'Custom requests to blockchain database',
             advantages: ['Small teams','Enterprise' ],
-            image: 'GraphImg.png',
+            image: 'GraphIMG.webp',
             href: 'https://dton.io/graphql',
         }
     },
@@ -19,7 +19,7 @@ export const products = [
         info: {
             title: 'Stable private liteclient with rate limits',
             advantages: ['Small teams','Enterprise' ],
-            image: 'liteserver.png',
+            image: 'liteserver.webp',
             href: 'https://t.me/liteserver_bot',
         }
     },
@@ -41,7 +41,7 @@ export const products = [
         info: {
             title: 'TON NFT mint, custom smart contracts, integrations',
             advantages: ['Enterprise'],
-            image: 'disintar.png',
+            image: 'disintar.webp',
             href: 'https://disintar.io',
         }
     },
