@@ -156,7 +156,7 @@ export const APIStatus = () => {
             <Typography.Title style={{
             margin: '108px 0 35px 0  ',
             color: '#9579F0',
-                alignSelf: 'flex-start'
+            alignSelf: 'flex-start',
         }}>
        API Status
         </Typography.Title>

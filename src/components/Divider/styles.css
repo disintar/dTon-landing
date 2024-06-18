@@ -1,19 +1,26 @@
 .divider {
-    transform: rotate(2.76deg);
     background: linear-gradient(102.51deg, #9473FF 23.43%, #8CCFFF 52.05%, #CB57F3 91.9%);
+    width: 102vw; 
+    border: 3px solid #FFFFFF;
     height: 65px;
-    width: 102dvw;
-    min-width: 1100px;
     position: absolute;
     top: -32.5px;
-    right: -1dvw;
-    border: 3px solid #FFFFFF
+    transform-origin: 0 0;
+  }
+
+ .zone {
+    background-color: #FFFFFF;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 65px;
  }
 
-.patterns {
-    background:
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 16"><foreignObject width="200px" height="16px"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Poppins,sans-serif;color:white;font-size:12px;">BLOCKCHAIN ANALYTICS</div></foreignObject></svg>') repeat-x;
-    background-position-x: calc(50% + 5px);
-    width:100%;
-    height:30px;
-  }
+.text {
+    margin: 8px;
+    font-size: 180%;
+    font-weight: 500;
+    line-height: 35px;
+    text-align: left;
+}
