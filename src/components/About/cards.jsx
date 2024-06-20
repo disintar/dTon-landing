@@ -1,16 +1,16 @@
 import {  Flex, Typography } from "antd"
-import onImg from './assets/on.svg'
-import offImg from './assets/off.svg'
+import onImg from './assets/on.webp'
+import offImg from './assets/off.webp'
 import aImg from './assets/Vector.svg'
 import firstImg from './assets/first.svg'
 import deDustLogo from './assets/DeDustLogo.svg'
 import tonLogo from './assets/tonLogo.svg'
 import notcoinLogo from './assets/NotcoinLogo.svg'
 import disintarLogo from './assets/DisintarLogo.svg'
-import collectionsImg from './assets/collections.svg'
+import collectionsImg from './assets/collections.webp'
 import downloadIcon from './assets/download.svg'
-import img7 from './assets/7.svg'
-import starIcon from './assets/star.svg'
+import img7 from './assets/7.webp'
+import starIcon from './assets/star.webp'
 
 import './styles.css'
 

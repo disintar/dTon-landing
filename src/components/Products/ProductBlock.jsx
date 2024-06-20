@@ -26,7 +26,7 @@ export const ProductBlock = ({active}) => {
     const info = products.find(item => item.id === active)?.info
     
     if(active === 5) {
-        return <Flex style={{width: '100%', minHeight: 470}} flex={1} align="center" justify='stretch'>
+        return <Flex style={{width: '100%', minHeight: 501.14}} flex={1} align="center" justify='stretch'>
             <Flex gap={20} flex={1} align='center' vertical>
                 {info.libs.map(Lib)}
             </Flex>

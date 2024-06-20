@@ -4,7 +4,7 @@ export const assetImage = src => `/products/${src}`
 export const products = [
     {   id: 1,
         title: 'GraphqlAPI',
-        image: 'GraphqlAPI.png',
+        image: 'GraphqlAPI.webp',
         info: {
             title: 'Custom requests to blockchain database',
             advantages: ['Small teams','Enterprise' ],
@@ -15,7 +15,7 @@ export const products = [
     {
         id: 2,
         title: '@liteserver_bot',
-        image: '@liteserver_bot.png',
+        image: '@liteserver_bot.webp',
         info: {
             title: 'Stable private liteclient with rate limits',
             advantages: ['Small teams','Enterprise' ],
@@ -25,19 +25,21 @@ export const products = [
     },
     {
         id: 3,
+        iconStyle: {borderRadius: 5},
         title: '@dtonforum',
-        image: '@dtonforum.png',
+        image: '@dtonforum.webp',
         info: {
             title: 'Custom analytics and dashboards for projects',
             advantages: ['Enterprise' ],
-            image: 'forum.png',
+            image: 'forum.webp',
             href: 'https://t.me/dtonforum',
         }
     },
     {
         id: 4,
         title: 'Disintar.io',
-        image: 'Disintario.png',
+        iconStyle: {borderRadius: 5, border: '1px solid #5AC8FA'},
+        image: 'Disintario.webp',
         info: {
             title: 'TON NFT mint, custom smart contracts, integrations',
             advantages: ['Enterprise'],
@@ -48,7 +50,7 @@ export const products = [
     {
         id: 5,
         title: 'Opensource libs',
-        image: 'Opensource.png',
+        image: 'Opensource.webp',
         info: {
             libs: [
                 {title: 'tonpy', link: '', stars: '17', color: '#FF95C7', href: 'https://github.com/disintar/tonpy'},

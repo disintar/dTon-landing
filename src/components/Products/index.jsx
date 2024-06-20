@@ -31,7 +31,7 @@ export const Products = () => {
     const [active, setActive] = useState(1)
     const {isMobile} = useWindowSize()
 
-const Product = ({id, title, image}) => {
+const Product = ({id, title, image, iconStyle}) => {
 
     const productStyle = {
         width: isMobile ? '100%' : 360,
@@ -44,7 +44,7 @@ const Product = ({id, title, image}) => {
     style={{...productStyle, ...active === id ? activeStyle : {}}}
         onClick={() => setActive(id)}>
     <Flex style={{padding: 15}} align="center">
-        <img style={logoStyle} src={assetImage(image)}></img>
+        <img style={{...logoStyle, ...iconStyle}} src={assetImage(image)}></img>
         <Typography style={textStyle}>
             {title}
         </Typography>
