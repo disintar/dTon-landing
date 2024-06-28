@@ -3,6 +3,7 @@ import { Col, Flex, Row, Space, Spin, Typography } from "antd"
 import { GoToStatusPage } from "../Buttons"
 import { useWindowSize } from "../../helpers/useWindowSize"
 import './status-circle.css'
+import { useStatusIcon } from "./useStatusIcon"
 
 const emptyData = {
     '7d': 0,
@@ -25,23 +26,8 @@ const valueStyle = {margin: 0}
 const SITE_STATUS_URL = 'https://status.dton.io/api/v1/simple/liteserver/';
 const BOT_STATUS_URL = 'https://status.dton.io/api/v1/simple/graphql/';
 
-const statusIcons = {
-    online: {
-        className: 'green',
-        color: '#32E350',
-        title: 'Operational',
-    },
-    offline: {
-        className: 'red',
-        color: '#FF7878',
-        title: 'Major outage',
-    },
-    pending: {
-        className: 'yellow',
-        title: 'Partial outage',
-        color: '#626262'
-    }
-}
+
+
 
 export const StatusCard = ({statusData, button, resource }) => {
 
@@ -49,24 +35,7 @@ const {"24h": day, "7d": week, index_latency, call_latency, available } = status
 
     const {isMobile} = useWindowSize()
 
-    const StatusIcon = ({color, title, className}) => {
-        return <Flex align="center" justify='space-around' gap={8}>
-            <Flex style={{width: 20, height: 20}}>
-            <div className={`circle ${className}`}/>
-            </Flex>
-            <Typography style={{color}}>{title}</Typography>
-        </Flex>
-    }
-
-    const getStatus = (available) => {
-        if(!available){
-            return statusIcons['pending']
-        }
-        else if(available === -1){
-            return statusIcons['offline']
-        }
-        return statusIcons['online']
-    }
+    const {icon} = useStatusIcon(available)
 
     return <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
         <Flex style={{width: '100%'}} justify='space-between'>
@@ -76,7 +45,7 @@ const {"24h": day, "7d": week, index_latency, call_latency, available } = status
             </Flex>
             <Flex vertical align='flex-end' gap={14} justify='flex-end'>
                 {button}
-                <StatusIcon {...getStatus(available)}/>
+              {icon}
             </Flex>
         </Flex>
         <Row style={blockStyle}>
