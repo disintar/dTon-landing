@@ -74,15 +74,16 @@ export const Documentation = ({style = {},size = 'small'}) => {
 }
 
 export const GoToStatusPage = ({style}) => {
-    return <button style={{width: 192,
+    return <a style={{width: 192,
         height: 45,
         fontWeight:600,
         fontSize: 18,
+        padding: 8,
         color: '#9579F0',
         borderColor: '#9579F0', ...style }}
-        onClick={()=> window.open('https://tech.dton.io/status','_blank')}
+        href='/status'
         
-        className='btn btn-primary outline'>Go to status page</button>
+        className='btn btn-primary outline'>Go to status page</a>
 }
 
 export const StartUsing = ({style, href}) => {
