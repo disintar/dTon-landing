@@ -1,13 +1,13 @@
 import React from "react";
 import { Flex } from 'antd';
-import { Hero } from './components/Hero';
-import { Products } from './components/Products';
-import { Divider } from './components/Divider';
-import { APIStatus } from './components/APIStatus';
-import { About } from './components/About';
-import { useWindowSize } from './helpers/useWindowSize';
-import { LayoutWrapper } from "./Layout";
-import { AlwaysInTouch } from "./components/AlwaysInTouch";
+import { Hero } from '../components/Hero';
+import { Products } from '../components/Products';
+import { Divider } from '../components/Divider';
+import { APIStatus } from '../components/APIStatus';
+import { About } from '../components/About';
+import { useWindowSize } from '../helpers/useWindowSize';
+import { LayoutWrapper } from "../Layout";
+import { AlwaysInTouch } from "../components/AlwaysInTouch";
 
 const contentStyle = {
     textAlign: 'center',

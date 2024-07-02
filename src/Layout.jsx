@@ -5,22 +5,10 @@ import './assets/fonts/fonts.css';
 import { HeaderBlock } from './components/Header';
 import { Flex, Layout } from 'antd';
 import './App.css'
-import { Hero } from './components/Hero';
-import { Products } from './components/Products';
-import { Divider } from './components/Divider';
-import { APIStatus } from './components/APIStatus';
-import { About } from './components/About';
-import { AlwaysInTouch } from './components/AlwaysInTouch';
 import { FooterLine } from './components/FooterLine';
 import { useWindowSize } from './helpers/useWindowSize';
 
 const { Header, Footer, Content } = Layout;
-
-
-const contentStyle = {
-  textAlign: 'center',
-  color: '#fff',
-};
 
 const footerStyle = {
   padding: 0

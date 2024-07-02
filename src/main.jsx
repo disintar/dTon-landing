@@ -5,8 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './assets/fonts/fonts.css';
-import { MainPage } from "./MainPage";
-import { StatusPage } from "./StatusPage";
+import { MainPage } from "./pages/MainPage";
+import { StatusPage } from "./pages/StatusPage";
 const router = createBrowserRouter([
   {
     path: "/",
