@@ -60,6 +60,16 @@ body {
         display: flex;
   }
 
+
+  .btn-status-tg {
+    width: 120px;
+    height: 40px;
+    color: #FFFFFF;
+    background-color: #5AC8FA;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
 .btn-tg:active {
     border: 1px solid #9579F0;
     box-shadow: 0px 0px 15px 0px #E1E1E1;
@@ -82,4 +92,22 @@ body {
 
 .btn:active {  
     box-shadow: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #626262;
+    background-color: #EDEDED;
+}
+
+td {
+    border: 1px solid #626262;
+}
+th {
+    padding: 15px 20px;
+    font-weight: normal;
+    border: 1px solid #626262;
+    background-color: #C8BCF6;
 }
