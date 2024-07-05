@@ -27,15 +27,15 @@ export const Nodes = () => {
         const {color, index_latency, call_latency} = item[1];
             return  <tr key={title}>
                         <td >
-                            <Flex style={{padding: '15px 20px'}}>{title}</Flex>
+                            <Flex align="center" justify="center" style={{padding: '15px 20px'}}>{title}</Flex>
                         </td>
                         <td>
-                            <Flex style={{padding: '15px 20px'}}>
+                            <Flex align="center" justify="center" style={{padding: '15px 20px'}}>
                                 {indexLatencyToString(index_latency)} ago
                             </Flex>
                         </td>
                         <td>
-                            <Flex style={{padding: '15px 20px'}}>
+                            <Flex align="center" justify="center" style={{padding: '15px 20px'}}>
                                 {callLatencyToString(call_latency)}
                             </Flex>
                         </td>
