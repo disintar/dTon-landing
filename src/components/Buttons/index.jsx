@@ -81,9 +81,10 @@ export const GoToStatusPage = ({style}) => {
         fontSize: 18,
         padding: 8,
         color: '#9579F0',
-        borderColor: '#9579F0', ...style }}
+        borderColor: '#9579F0',
+        ...style }}
         href='/status'
-        
+        target='_self'
         className='btn btn-primary outline'>Go to status page</a>
 }
 

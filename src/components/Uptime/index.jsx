@@ -27,6 +27,10 @@ const radioStyle = {
 function interpolateColor(value, min = 0, max = 1) {
     const minColor = [255, 0, 0]; // Red
     const maxColor = [0, 255, 0]; // Green
+
+    if (value > 0.4 && value <= 0.6) {
+        return 'rgb(255, 255, 0)'; // Yellow color at value 0.4 - 0.6
+      }
   
     const ratio = (value - min) / (max - min);
     const color = [
@@ -80,7 +84,7 @@ const DataBlock = ({title, field, avg, loading, error, data, formatValue}) => {
 }
 
 export const Uptime = ({title}) => {
-    const [days, setDays] = useState(90)
+    const [days, setDays] = useState(1)
    
     const {data,loading,error, load} = useFetchData(`https://status.dton.io/api/v1/advanced/${resources[title]}/${days}/`)
 

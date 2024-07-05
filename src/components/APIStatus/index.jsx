@@ -58,7 +58,8 @@ export const APIStatus = () => {
                 </Flex>
             </Flex>
             <StatusCard
-            data={siteData}/>
+            data={siteData}/> 
+            {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
              </Flex>
              <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
             
@@ -68,13 +69,12 @@ export const APIStatus = () => {
                     <Typography.Title level={isMobile ? 4 : 3} style={{margin: 0}}>Status metrics</Typography.Title>
                 </Flex>
                 <Flex vertical align='flex-end' gap={14} justify='flex-end'>
-                    {isMobile ? null : <GoToStatusPage/>}
                 {botStatusIcon}
                 </Flex>
             </Flex>
             <StatusCard 
             data={botData}/>
-            {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
+         
             </Flex>
         </Flex>
     </Flex>
