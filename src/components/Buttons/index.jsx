@@ -1,5 +1,6 @@
-import React from 'react'
-import { Flex } from 'antd'
+import React, { useRef, useState } from 'react'
+import { Alert, Flex, Input, Typography } from 'antd'
+import axios from 'axios'
 
 export const BookCall = ({style={}, size = 'small'}) => {
 
@@ -74,15 +75,17 @@ export const Documentation = ({style = {},size = 'small'}) => {
 }
 
 export const GoToStatusPage = ({style}) => {
-    return <button style={{width: 192,
+    return <a style={{width: 192,
         height: 45,
         fontWeight:600,
         fontSize: 18,
+        padding: 8,
         color: '#9579F0',
-        borderColor: '#9579F0', ...style }}
-        onClick={()=> window.open('https://tech.dton.io/status','_blank')}
-        
-        className='btn btn-primary outline'>Go to status page</button>
+        borderColor: '#9579F0',
+        ...style }}
+        href='/status'
+        target='_self'
+        className='btn btn-primary outline'>Go to status page</a>
 }
 
 export const StartUsing = ({style, href}) => {
@@ -96,4 +99,49 @@ export const Dtontech = () => {
     <circle cx="12.5" cy="12.5" r="12.5" fill="#9579F0"/>
     <path d="M17.5 8C17.5 7.72386 17.2761 7.5 17 7.5L12.5 7.5C12.2239 7.5 12 7.72386 12 8C12 8.27614 12.2239 8.5 12.5 8.5L16.5 8.5L16.5 12.5C16.5 12.7761 16.7239 13 17 13C17.2761 13 17.5 12.7761 17.5 12.5L17.5 8ZM8.35355 17.3536L17.3536 8.35355L16.6464 7.64645L7.64645 16.6464L8.35355 17.3536Z" fill="white"/>
     </svg></button>
+}
+
+
+export const TelegramButton = () => {
+    return <button className='btn btn-status-tg'>
+            Telegram
+    </button>
+}
+
+
+export const EmailInput = () => {
+    const [email, setEmail] = useState();
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('')
+    const inputRef = useRef(null);
+
+    const validateEmail = () => {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        if (!emailRegex.test(email)) {
+            setError('Email not valid')
+            return false
+        } else {
+            setError('')
+            return true
+        }
+      }
+
+    const handleEmail = () => {
+        if(validateEmail(email)){
+            axios.post(`https://status.dton.io/api/v1/email_subscribe/${email}/`).then(({data}) => {
+                if(data?.success){
+                    setSuccess('Subscribe success!')
+                    //setInterval(()=> setSuccess(''), 5000)
+                }}
+            )
+        }
+      }
+
+     return <Flex align='center' justify='center' gap={10}>
+        <Input ref={inputRef} onPressEnter={handleEmail} onChange={(e)=> setEmail(e.target.value)} placeholder="Email" 
+     style={{width: 282, height:40, backgroundColor:'#C8BCF6', color: '#9579F0', borderRadius: 10}}/>
+     <Typography style={{color: '#FF7878' }}>{error}</Typography>
+     <Typography style={{color: '#32E350' }}>{success}</Typography>
+     </Flex>
+
 }

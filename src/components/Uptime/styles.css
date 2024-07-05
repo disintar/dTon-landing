@@ -1,0 +1,12 @@
+.status-stick {
+    min-width: 3px;
+    height: 20px;
+    border-radius: 10px;
+}
+.status-stick::-webkit-scrollbar {
+        display: none;
+      }
+.status-line {
+overflow-x: scroll;
+  min-width: 100%;
+}
