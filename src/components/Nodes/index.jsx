@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import useFetchData from "../../helpers/useFetchData"
-import { Flex, Spin, Typography } from "antd"
+import { Flex, Skeleton, Spin, Typography } from "antd"
 import { callLatencyToString, indexLatencyToString } from "../../helpers/strings"
 
 export const Nodes = () => {
@@ -10,21 +10,19 @@ export const Nodes = () => {
         load()
     }, [])
 
-    console.log(data)
-    if(loading) return <Spin/>
-
-
     return <Flex vertical align="start">
         <Typography style={{fontSize: 30, fontWeight:500}}>TON Private Nodes</Typography>
-        <table>
+        {loading ? <Skeleton active style={{width:315, height: 430}} /> : <table>
+        <thead>
         <tr>
             <th>№</th>
             <th>Last block</th>
             <th>Answer latency</th>
         </tr>
-        {Object.entries(data).map(item => {
-        const title = item[0]
-        const {color, index_latency, call_latency} = item[1];
+        </thead>
+        <tbody>
+        { data && data.map(item => {
+        const {title, index_latency, call_latency} = item;
             return  <tr key={title}>
                         <td >
                             <Flex align="center" justify="center" style={{padding: '15px 20px'}}>{title}</Flex>
@@ -39,8 +37,7 @@ export const Nodes = () => {
                                 {callLatencyToString(call_latency)}
                             </Flex>
                         </td>
-                            
-                       
                     </tr>})}
-        </table></Flex>
+                    </tbody>
+        </table>}</Flex>
 }

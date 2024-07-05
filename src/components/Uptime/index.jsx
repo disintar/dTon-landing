@@ -1,4 +1,4 @@
-import { Flex,Spin, Tooltip, Typography } from "antd"
+import { Flex,Skeleton,Spin, Tooltip, Typography } from "antd"
 import './styles.css'
 import useFetchData from "../../helpers/useFetchData";
 import { useEffect, useState } from "react";
@@ -62,7 +62,7 @@ const DataBlock = ({title, field, avg, loading, error, data, formatValue}) => {
     <Typography style={{color: '#32E350'}}>{!lastItem ? <Spin/> : formatValue(getAvgValue(lastItem))}</Typography>
 </Flex>
 <Flex gap={2} className="status-line" style={{ overflow:'hidden'}}>
-    {!loading && Object.values(data).map((item, index) => {
+    {loading ? <Skeleton.Input size="small" block active/> : Object.values(data).map((item, index) => {
        
         const date = new Date(item['avg_date']).toDateString()
         const tooltipText = <Flex vertical>

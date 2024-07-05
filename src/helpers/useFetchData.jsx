@@ -11,11 +11,11 @@ function useFetchData(url) {
     setLoading(true);
     try {
       const result = await axios.get(url)
-
-      if(result?.data?.data){
-        setData(result.data.data);
-      }
-      setData(result.data);
+    //console.log(result, url)
+    setData(result.data);
+    if(result?.data?.data){
+      setData(result.data.data);
+    }
     } catch (e) {
       setError(true);
       console.error(e)

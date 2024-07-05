@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import useFetchData from "../../helpers/useFetchData"
-import { Flex, Spin, Typography } from "antd"
+import { Flex, Skeleton, Spin, Typography } from "antd"
 
 export const Servers = () => {
     const {data, loading, error, load} = useFetchData('https://status.dton.io/api/v1/servers/')
@@ -9,16 +9,12 @@ export const Servers = () => {
         load()
     }, [])
 
-    console.log(data)
-    if(loading) return <Spin/>
-
-
     return <Flex vertical align="start">
         <Typography style={{fontSize: 30, fontWeight:500}}>Servers</Typography>
-        <table>
-        {Object.entries(data).map(item => {
-        const title = item[0]
-        const {color, ping} = item[1];
+        {loading ? <Skeleton active style={{width:320, height: 370}} /> : <table>
+            <tbody>
+        {data && data.map(item => {
+        const {color,title, ping} = item
             return  <tr key={title}>
                         <td >
                             <Flex style={{padding: '15px 20px', }}>{title}</Flex></td>
@@ -35,5 +31,6 @@ export const Servers = () => {
                             
                        
                     </tr>})}
-        </table></Flex>
+                    </tbody>
+        </table>}</Flex>
 }
