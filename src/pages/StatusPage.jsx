@@ -7,6 +7,9 @@ import { EmailInput, TelegramButton } from "../components/Buttons";
 import axios from "axios";
 import { Servers } from "../components/Servers";
 import { Nodes } from "../components/Nodes";
+
+
+
 const contentStyle = {
     textAlign: 'center',
     color: '#fff',
@@ -21,21 +24,19 @@ const contentStyle = {
     margin: 'auto',
   }
 export const StatusPage = () => {
-    const {isMobile} = useWindowSize();
+    const {md, isMobile} = useWindowSize();
     const centerStyle = isMobile ? mobileCenterStyle: desktopCenterStyle;
-
-  
 
     return <LayoutWrapper>
         <Flex align="start" gap={25} justify="center" vertical style={centerStyle}>
-    <Typography.Title style={{color:'#9579F0'}}>
+    <Typography.Title level={md ? 2 : 1} style={{color:'#9579F0'}}>
     Get Status notifications
     </Typography.Title>
-    <Space>
+    <Flex gap={15} vertical={md}>
       <TelegramButton/>
-     <EmailInput/>
-    </Space>
-    <Flex justify="start" align="center" gap={15}>
+      <EmailInput/>
+    </Flex>
+    <Flex justify="start" align="center" wrap={md ? 'wrap': 'nowrap'} gap={15}>
       <Flex align="center"
         justify="center" >
         <div style={{width: 30, height: 30}} className={`circle green`}/>
@@ -47,10 +48,10 @@ export const StatusPage = () => {
       <Uptime title={'@literserver.bot'}/>
       <Divider type='horizontal'/>
       <Row style={{width: '100%', marginBottom: 25}}>
-        <Col span={8}>
+        <Col flex={3}>
           <Servers/>
         </Col>
-        <Col span={14} offset={2}>
+        <Col flex={4}>
           <Nodes/>
         </Col>
     </Row>

@@ -105,9 +105,19 @@ table {
 td {
     border: 1px solid #626262;
 }
+
 th {
     padding: 15px 20px;
     font-weight: normal;
     border: 1px solid #626262;
     background-color: #C8BCF6;
+}
+th:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    
+}
+th:last-child {
+    border-right-style: solid;
+    border-top-right-radius: 10px; 
 }
