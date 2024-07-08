@@ -29,7 +29,7 @@ function interpolateColor(value) {
 
     switch (true) {
         case value < 0:
-            break;    
+           return 'rgba(0, 0, 0, 0)';    
         case /* value >= 0 && */ value <= 0.2:
             return 'rgba(255, 120, 120, 1)';
         case value <= 0.4:
@@ -40,7 +40,7 @@ function interpolateColor(value) {
             return 'rgba(50, 227, 80, 0.6)';
         case value <= 1:
             return 'rgba(50, 227, 80, 1)';
-        default: break;
+        default:  return 'rgba(0, 0, 0, 0)';    
   }
 }
 
