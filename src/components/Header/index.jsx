@@ -48,9 +48,11 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
     <Flex
      justify='space-between'
      align="center"
-        onClick={()=> window.open('/','_self')}
-     style={{paddingTop: 16, cursor:'pointer'}} >
-        <Flex align='baseline' gap={8}>
+     style={{paddingTop: 16}} >
+        <Flex align='baseline'
+        style={{cursor:'pointer'}}
+        gap={8} 
+        onClick={()=> window.open('/','_self')}>
             <Lottie options={{
                             loop: true,
                             autoplay: true,
@@ -67,7 +69,8 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
         </Flex>
             <Links style={mobileHiddenStyle}/>
             <ConnectAndTry style={mobileHiddenStyle} size="small"/>
-            <BurgerIcon onClick={()=> setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
+            <BurgerIcon onClick={(e)=> {e.preventDefault()
+                setShowMenu(prev => !prev)}} style={{...mobileVisibleStyle, ...iconStyle}}/>
             
     </Flex>
     {showMenu && <Flex vertical justify='space-between'
