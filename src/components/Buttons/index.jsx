@@ -83,8 +83,7 @@ export const GoToStatusPage = ({style}) => {
         color: '#9579F0',
         borderColor: '#9579F0',
         ...style }}
-        href='/status'
-        target='_self'
+       onClick={()=> window.open('/status','_self')}
         className='btn btn-primary outline'>Go to status page</a>
 }
 
