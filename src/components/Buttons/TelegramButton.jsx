@@ -28,13 +28,10 @@ export const TelegramButton = () => {
                 query: makeQuery(validateData)
             }
         };
+        console.log('query gql',makeQuery(validateData))
         axios.request(options)
-            .then(function (response) {
-                if(response.status === 200){
-                    const {data, errors} = response;
-                    console.log(data)
-                    console.log(errors)
-                }
+            .then(function (response) { 
+             console.log('response gql',response)
             })
             .catch(function (error) {
                 setError('Unknown Error')
@@ -44,6 +41,7 @@ export const TelegramButton = () => {
     return  <Flex vertical><LoginButton
     botUsername="dtonbot"
     onAuthCallback={(data) => {
+        console.log('widget callback', data)
         setError('')
         getValidate(data)
     }}
