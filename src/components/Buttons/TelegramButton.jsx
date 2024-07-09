@@ -20,16 +20,9 @@ const userString = JSON.stringify(userdata).replaceAll('"', "'")
 export const TelegramButton = () => {
     const [error, setError] = useState('')
 
-    const getValidate = async (validateData) => {
-        const options = {
-            method: 'POST',
-            url: endpoint,
-            data: {
-                query: makeQuery(validateData)
-            }
-        };
-        console.log('query gql',makeQuery(validateData))
-        axios.request(options)
+    const getValidate = async (validateData) => { 
+        console.log('query gql:',makeQuery(validateData))
+        axios.post(endpoint, {query: makeQuery(validateData)})
             .then(function (response) { 
              console.log('response gql',response)
             })
@@ -41,7 +34,7 @@ export const TelegramButton = () => {
     return  <Flex vertical><LoginButton
     botUsername="dtonbot"
     onAuthCallback={(data) => {
-        console.log('widget callback', data)
+        console.log('widget callback:', {data})
         setError('')
         getValidate(data)
     }}
