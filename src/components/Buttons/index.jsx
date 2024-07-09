@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Alert, Flex, Input, Typography } from 'antd'
 import axios from 'axios'
 
@@ -83,8 +83,7 @@ export const GoToStatusPage = ({style}) => {
         color: '#9579F0',
         borderColor: '#9579F0',
         ...style }}
-        href='/status'
-        target='_self'
+       onClick={()=> window.open('/status','_self')}
         className='btn btn-primary outline'>Go to status page</a>
 }
 
@@ -102,11 +101,7 @@ export const Dtontech = () => {
 }
 
 
-export const TelegramButton = () => {
-    return <button className='btn btn-status-tg'>
-            Telegram
-    </button>
-}
+
 
 
 export const EmailInput = () => {

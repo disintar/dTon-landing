@@ -4,6 +4,7 @@ import useFetchData from "../../helpers/useFetchData";
 import { useEffect, useState } from "react";
 import { PercentageBlock } from "./percentageBlock";
 import { callLatencyToString, indexLatencyToString, percentToString } from "../../helpers/strings";
+import { useWindowSize } from "../../helpers/useWindowSize";
 
 const resources = {
     'dton.io': 'graphql',
@@ -24,23 +25,24 @@ const radioStyle = {
     cursor: 'pointer',
 }
 
-function interpolateColor(value, min = 0, max = 1) {
-    const minColor = [255, 0, 0]; // Red
-    const maxColor = [0, 255, 0]; // Green
+function interpolateColor(value) {
 
-    if (value > 0.4 && value <= 0.6) {
-        return 'rgb(255, 255, 0)'; // Yellow color at value 0.4 - 0.6
-      }
-  
-    const ratio = (value - min) / (max - min);
-    const color = [
-      Math.round((maxColor[0] - minColor[0]) * ratio + minColor[0]),
-      Math.round((maxColor[1] - minColor[1]) * ratio + minColor[1]),
-      Math.round((maxColor[2] - minColor[2]) * ratio + minColor[2])
-    ];
-  
-    return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    switch (true) {
+        case value < 0:
+           return 'rgba(0, 0, 0, 0)';    
+        case /* value >= 0 && */ value <= 0.2:
+            return 'rgba(255, 120, 120, 1)';
+        case value <= 0.4:
+            return 'rgba(255, 120, 120, 0.6)';
+        case value <= 0.6:
+            return 'rgba(251, 255, 0, 1)';
+        case value <= 0.8:
+            return 'rgba(50, 227, 80, 0.6)';
+        case value <= 1:
+            return 'rgba(50, 227, 80, 1)';
+        default:  return 'rgba(0, 0, 0, 0)';    
   }
+}
 
 
 const DataBlock = ({title, field, avg, loading, error, data, formatValue}) => {
@@ -76,7 +78,7 @@ const DataBlock = ({title, field, avg, loading, error, data, formatValue}) => {
                 {formatValue(getAvgValue(item))}
             </Flex>
         return <Tooltip key={index} placement="top" title={tooltipText}>
-            <div  className="status-stick" style={{backgroundColor: interpolateColor(item[field], 0 , 1)}} />
+            <div  className="status-stick" style={{backgroundColor: interpolateColor(item[field])}} />
             </Tooltip>
     })}
     </Flex>
@@ -85,6 +87,7 @@ const DataBlock = ({title, field, avg, loading, error, data, formatValue}) => {
 
 export const Uptime = ({title}) => {
     const [days, setDays] = useState(1)
+    const {md} = useWindowSize()
    
     const {data,loading,error, load} = useFetchData(`https://status.dton.io/api/v1/advanced/${resources[title]}/${days}/`)
 
@@ -94,14 +97,13 @@ export const Uptime = ({title}) => {
 
     const isActiveStyle = (value) => {
         return days === value ? activeStyle : {}
-
     }
 
     return <Flex vertical gap={25} style={{width: '100%'}}>
-        <Flex justify='space-between'>
-            <Flex gap={8} align='baseline'>
-                    <Typography style={{fontSize:30, fontWeight:500}}>Uptime</Typography>
-                    <Typography style={{fontSize:24, fontWeight:600, color: '#5AC8FA'}}>{title}</Typography>
+        <Flex align='baseline' justify='space-between'>
+            <Flex gap={8} align='baseline' wrap>
+                    <Typography style={{fontSize: md ? 24 : 30, fontWeight:500}}>Uptime</Typography>
+                    <Typography style={{fontSize:md ? 20 : 24, fontWeight:600, color: '#5AC8FA'}}>{title}</Typography>
             </Flex>  
             <Flex align="center" justify='center' gap={2} style={{backgroundColor: '#8F8F8F33', height:30, padding: '5px 15px', borderRadius: 8}}>
                 <div onClick={()=> setDays(1)} style={{...radioStyle, ...isActiveStyle(1)}}>1d</div>

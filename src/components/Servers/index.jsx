@@ -9,7 +9,7 @@ export const Servers = () => {
         load()
     }, [])
 
-    return <Flex vertical align="start">
+    return <Flex vertical style={{margin: '0 25px 25px 0'}} align="start">
         <Typography style={{fontSize: 30, fontWeight:500}}>Servers</Typography>
         {loading ? <Skeleton active style={{width:320, height: 370}} /> : <table>
             <tbody>

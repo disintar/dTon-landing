@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 body {
     margin: 0
 }
@@ -105,9 +108,19 @@ table {
 td {
     border: 1px solid #626262;
 }
+
 th {
     padding: 15px 20px;
     font-weight: normal;
     border: 1px solid #626262;
     background-color: #C8BCF6;
+}
+th:first-child {
+    border-left-style: solid;
+    border-top-left-radius: 10px; 
+    
+}
+th:last-child {
+    border-right-style: solid;
+    border-top-right-radius: 10px; 
 }
