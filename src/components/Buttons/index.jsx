@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Alert, Flex, Input, Typography } from 'antd'
 import axios from 'axios'
 
@@ -102,11 +102,7 @@ export const Dtontech = () => {
 }
 
 
-export const TelegramButton = () => {
-    return <button className='btn btn-status-tg'>
-            Telegram
-    </button>
-}
+
 
 
 export const EmailInput = () => {
