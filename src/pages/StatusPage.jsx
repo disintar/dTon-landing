@@ -3,10 +3,10 @@ import { LayoutWrapper } from "../Layout";
 import { Button, Col, Divider, Flex, Input, Row, Space, Typography } from "antd";
 import { useWindowSize } from "../helpers/useWindowSize";
 import { Uptime } from "../components/Uptime";
-import { EmailInput, TelegramButton } from "../components/Buttons";
-import axios from "axios";
+import { EmailInput} from "../components/Buttons";
 import { Servers } from "../components/Servers";
 import { Nodes } from "../components/Nodes";
+import { TelegramButton } from "../components/Buttons/TelegramButton";
 
 
 
