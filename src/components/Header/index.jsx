@@ -77,7 +77,7 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
             style={{ ...mobileVisibleStyle,
              ...mobileMenuStyle}}>
                 <Links mobile />
-                <ConnectAndTry style={{alignSelf: 'center', color: '#FFF', width: '100%', fontSize: 18, fontWeight: 500}}/>
+                <ConnectAndTry style={{alignSelf: 'center', color: '#FFF', width: '100%', fontSize: 18, fontWeight: 500, marginBottom: isMobileHeader ? 25 : 0}}/>
             </Flex>}
     </>
 }
