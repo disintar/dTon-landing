@@ -67,8 +67,9 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
         </Flex>
             <Links style={mobileHiddenStyle}/>
             <ConnectAndTry style={mobileHiddenStyle} size="small"/>
-            <BurgerIcon onClick={()=> setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
-            
+            <BurgerIcon onClick={()=>
+                setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
+      
     </Flex>
     {showMenu && <Flex vertical justify='space-between'
             style={{ ...mobileVisibleStyle,
