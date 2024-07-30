@@ -117,7 +117,7 @@ export const APIStatus = () => {
 
     const fetchData = (url, action, setLoading) => {
 
-        fetch(url,{mode:'cors'})
+        fetch(url,{mode:'no-cors'})
                 .then(response => {
                     if (!response.ok) {
 
