@@ -1,25 +1,14 @@
+
 import React from 'react';
 import {  ConfigProvider } from 'antd';
 import './assets/fonts/fonts.css';
 import { HeaderBlock } from './components/Header';
 import { Flex, Layout } from 'antd';
 import './App.css'
-import { Hero } from './components/Hero';
-import { Products } from './components/Products';
-import { Divider } from './components/Divider';
-import { APIStatus } from './components/APIStatus';
-import { About } from './components/About';
-import { AlwaysInTouch } from './components/AlwaysInTouch';
 import { FooterLine } from './components/FooterLine';
 import { useWindowSize } from './helpers/useWindowSize';
 
 const { Header, Footer, Content } = Layout;
-
-
-const contentStyle = {
-  textAlign: 'center',
-  color: '#fff',
-};
 
 const footerStyle = {
   padding: 0
@@ -39,7 +28,7 @@ const desktopCenterStyle = {
   margin: 'auto',
 }
 
-const App = () => {
+export const LayoutWrapper = ({children}) => {
   const {isMobile} = useWindowSize();
   const centerStyle = isMobile ? mobileCenterStyle: desktopCenterStyle
 
@@ -73,47 +62,21 @@ return <ConfigProvider
   <Flex gap="middle" wrap>
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
-            <div style={{
-                ...centerStyle,
-                height: '100%'
-            }}>
-                <HeaderBlock/>
-            </div>
-      
+        <div style={{
+            ...centerStyle,
+            height: '100%'
+        }}>
+            <HeaderBlock/>
+        </div>
         </Header>
-      <Content style={{...contentStyle,  backgroundColor: '#101014', padding: '100px 0'}}>
-        <div style={centerStyle}>
-            <Hero/>
-        </div>
-        
-      </Content>
-      <Content id='products' style={contentStyle}>
-        <div style={centerStyle}>
-           <Products/>
-        </div>
-      </Content>
-      
-      <Content  style={{...contentStyle,
-        backgroundColor: '#F3F3F3',
-        position:'relative'
-      }}>
-        <Divider/>
-        <div id="api-status" style={centerStyle}>
-          <APIStatus/>
-        </div>
-      </Content>
-      <Content  style={contentStyle}>
-        <div id='about' style={centerStyle}>
-          <About/>
-        </div>
-      </Content>
-      <Footer style={footerStyle}>
-        <AlwaysInTouch/>
-        <FooterLine/>
-      </Footer>
+        <Content style={{minHeight: "100vh"}}>
+            {children}
+        </Content>
+        <Footer style={footerStyle}>
+            <FooterLine/>
+        </Footer>
     </Layout>
   </Flex>
-  </ConfigProvider>
+</ConfigProvider>
 }
 
-export default App;

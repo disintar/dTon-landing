@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { dton_logo } from './logo'
-import { Flex, Space, Typography, Button } from "antd"
+import { Flex, Typography } from "antd"
 import Lottie from "react-lottie"
-import { BookCall, ConnectAndTry } from "../Buttons"
+import { ConnectAndTry } from "../Buttons"
 import {useWindowSize} from '../../helpers/useWindowSize'
 import {MenuOutlined, CloseOutlined} from '@ant-design/icons'
 const BURGER_BREAKPOINT = 835
@@ -24,13 +24,13 @@ const iconStyle = {fontSize: 24, color: '#fff'}
 
 const Links = ({mobile, style}) => {
     return <Flex vertical={mobile} gap={30} style={style}>
-            <Typography.Link href="#api-status" style={linkStyle}>
+            <Typography.Link href="/#api-status" style={linkStyle}>
                 API Status
             </Typography.Link>
-            <Typography.Link href="#about" style={linkStyle}>
+            <Typography.Link href="/#about" style={linkStyle}>
                 About us
             </Typography.Link>
-            <Typography.Link href="#products" style={linkStyle}>
+            <Typography.Link href="/#products" style={linkStyle}>
                 Products
             </Typography.Link>
     </Flex>
@@ -48,8 +48,8 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
     <Flex
      justify='space-between'
      align="center"
-
-     style={{paddingTop: 16}} >
+        onClick={()=> window.open('/','_self')}
+     style={{paddingTop: 16, cursor:'pointer'}} >
         <Flex align='baseline' gap={8}>
             <Lottie options={{
                             loop: true,
@@ -67,8 +67,9 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
         </Flex>
             <Links style={mobileHiddenStyle}/>
             <ConnectAndTry style={mobileHiddenStyle} size="small"/>
-            <BurgerIcon onClick={()=> setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
-            
+            <BurgerIcon onClick={()=>
+                setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
+      
     </Flex>
     {showMenu && <Flex vertical justify='space-between'
             style={{ ...mobileVisibleStyle,
