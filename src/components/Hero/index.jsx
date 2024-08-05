@@ -11,7 +11,7 @@ export const Hero = () => {
             color: '#9579F0',
             fontSize: isMobile ? 40 : 60
         }}>
-        Empowering Developers:
+        Empowering TON Innovators
         </Typography.Title>
         <Typography.Paragraph style={{
             fontSize: '24px',
@@ -19,8 +19,8 @@ export const Hero = () => {
             color: '#FFFFFF',
             textAlign: 'start'
         }}>
-            Learn About Our API<br/>
-            We provide analytics and custom integrations
+            Enjoy our state-of-the-art analytic services<br/>
+            Lead your business to new heights in the dynamic TON landscape
         </Typography.Paragraph>
         <Flex gap={30} vertical={isMobile} style={{marginTop: 44, width: '100%'}}>
             <BookCall style={isMobile ? {width: '100%'} : {}} size='large'/>
