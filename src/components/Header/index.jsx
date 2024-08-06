@@ -48,9 +48,11 @@ const BurgerIcon = !showMenu ? MenuOutlined : CloseOutlined
     <Flex
      justify='space-between'
      align="center"
-        onClick={()=> window.open('/','_self')}
-     style={{paddingTop: 16, cursor:'pointer'}} >
-        <Flex align='baseline' gap={8}>
+     style={{paddingTop: 16}}
+      >
+        <Flex align='baseline'
+         style={{ cursor:'pointer'}}
+        gap={8} onClick={()=> window.open('/','_self')}>
             <Lottie options={{
                             loop: true,
                             autoplay: true,

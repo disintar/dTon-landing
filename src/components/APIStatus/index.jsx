@@ -58,8 +58,7 @@ export const APIStatus = () => {
                 </Flex>
             </Flex>
             <StatusCard
-            data={siteData}/>
-            {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
+            data={siteData}/> 
              </Flex>
              <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
 
@@ -74,7 +73,7 @@ export const APIStatus = () => {
             </Flex>
             <StatusCard
             data={botData}/>
-
+           {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
             </Flex>
         </Flex>
     </Flex>
