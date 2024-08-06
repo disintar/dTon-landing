@@ -10,7 +10,7 @@ function useFetchData(url) {
   async function load() {
     setLoading(true);
     try {
-      const result = await axios.get(url)
+      const result = await axios.get(url, {withCredentials: false})
     //console.log(result, url)
     setData(result.data);
     if(result?.data?.data){

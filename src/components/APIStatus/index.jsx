@@ -46,7 +46,7 @@ export const APIStatus = () => {
         </Typography.Title>
         <Flex gap='large' align="center" vertical>
             <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
-            
+
             <Flex style={{width: '100%'}} justify='space-between'>
                 <Flex vertical align='start'>
                     <Typography.Title level={isMobile ? 3 : 2} style={{color: '#5AC8FA', margin: 0}}>Dton.io</Typography.Title>
@@ -59,10 +59,9 @@ export const APIStatus = () => {
             </Flex>
             <StatusCard
             data={siteData}/> 
-          
              </Flex>
              <Flex align="start" vertical gap='middle' style={{width: '100%'}}>
-            
+
             <Flex style={{width: '100%'}} justify='space-between'>
                 <Flex vertical align='start'>
                     <Typography.Title level={isMobile ? 3 : 2} style={{color: '#5AC8FA', margin: 0}}>@liteserver.bot</Typography.Title>
@@ -72,7 +71,7 @@ export const APIStatus = () => {
                 {botStatusIcon}
                 </Flex>
             </Flex>
-            <StatusCard 
+            <StatusCard
             data={botData}/>
            {isMobile && <GoToStatusPage style={{width: '100%'}}/>}
             </Flex>
