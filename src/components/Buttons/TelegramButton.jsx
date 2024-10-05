@@ -4,7 +4,7 @@ import { Flex, Typography } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
 
-const endpoint = "https://dton.io/graphql/";
+const endpoint = "https://dton.co/graphql/";
 
 const makeQuery = (data) => {
 const {hash, auth_date, ...userdata  } = data

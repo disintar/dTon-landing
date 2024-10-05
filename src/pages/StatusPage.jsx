@@ -44,7 +44,7 @@ export const StatusPage = () => {
       <Typography style={{fontSize: 32, fontWeight: 600}}>All systems</Typography>
       <Typography style={{fontSize: 32, fontWeight: 600, color: '#32E35099'}}>operational</Typography>
     </Flex>
-      <Uptime title={'dton.io'}/>
+      <Uptime title={'dton.co'}/>
       <Uptime title={'@literserver.bot'}/>
       <Divider type='horizontal'/>
       <Row style={{width: '100%', marginBottom: 25}}>

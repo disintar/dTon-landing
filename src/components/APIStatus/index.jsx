@@ -49,7 +49,7 @@ export const APIStatus = () => {
 
             <Flex style={{width: '100%'}} justify='space-between'>
                 <Flex vertical align='start'>
-                    <Typography.Title level={isMobile ? 3 : 2} style={{color: '#5AC8FA', margin: 0}}>Dton.io</Typography.Title>
+                    <Typography.Title level={isMobile ? 3 : 2} style={{color: '#5AC8FA', margin: 0}}>dton.co</Typography.Title>
                     <Typography.Title level={isMobile ? 4 : 3} style={{margin: 0}}>Status metrics</Typography.Title>
                 </Flex>
                 <Flex vertical align='flex-end' gap={14} justify='flex-end'>

@@ -7,7 +7,7 @@ import { callLatencyToString, indexLatencyToString, percentToString } from "../.
 import { useWindowSize } from "../../helpers/useWindowSize";
 
 const resources = {
-    'dton.io': 'graphql',
+    'dton.co': 'graphql',
     '@literserver.bot':'liteserver'
 }
 
@@ -89,7 +89,7 @@ export const Uptime = ({title}) => {
     const [days, setDays] = useState(1)
     const {md} = useWindowSize()
    
-    const {data,loading,error, load} = useFetchData(`https://status.dton.io/api/v1/advanced/${resources[title]}/${days}/`)
+    const {data,loading,error, load} = useFetchData(`https://status.dton.co/api/v1/advanced/${resources[title]}/${days}/`)
 
     useEffect(()=> {
         load();

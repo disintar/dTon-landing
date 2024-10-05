@@ -9,7 +9,7 @@ export const products = [
             title: 'Custom requests to blockchain database',
             advantages: ['Small teams','Enterprise' ],
             image: 'GraphIMG.webp',
-            href: 'https://dton.io/graphql',
+            href: 'https://dton.co/graphql',
         }
     },
     {

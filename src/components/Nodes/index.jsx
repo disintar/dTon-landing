@@ -4,7 +4,7 @@ import { Flex, Skeleton, Spin, Typography } from "antd"
 import { callLatencyToString, indexLatencyToString } from "../../helpers/strings"
 
 export const Nodes = () => {
-    const {data, loading, error, load} = useFetchData('https://status.dton.io/api/v1/liteservers/')
+    const {data, loading, error, load} = useFetchData('https://status.dton.co/api/v1/liteservers/')
 
     useEffect(() => {
         load()

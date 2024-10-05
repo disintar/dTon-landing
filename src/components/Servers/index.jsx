@@ -3,7 +3,7 @@ import useFetchData from "../../helpers/useFetchData"
 import { Flex, Skeleton, Spin, Typography } from "antd"
 
 export const Servers = () => {
-    const {data, loading, error, load} = useFetchData('https://status.dton.io/api/v1/servers/')
+    const {data, loading, error, load} = useFetchData('https://status.dton.co/api/v1/servers/')
 
     useEffect(() => {
         load()
