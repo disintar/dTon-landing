@@ -13,8 +13,8 @@ const blockStyle = {
 const textStyle = {fontSize: 18, color: '#32E350'}
 const valueStyle = {margin: 0}
 
-export const SITE_STATUS_URL = 'https://status.dton.io/api/v1/simple/liteserver/';
-export const BOT_STATUS_URL = 'https://status.dton.io/api/v1/simple/graphql/';
+export const SITE_STATUS_URL = 'https://dton.io/api_status/v1/simple/liteserver/';
+export const BOT_STATUS_URL = 'https://dton.io/api_status/v1/simple/graphql/';
 
 export const StatusCard = ({data, button, resource }) => {
 

@@ -123,7 +123,7 @@ export const EmailInput = () => {
 
     const handleEmail = () => {
         if(validateEmail(email)){
-            axios.post(`https://status.dton.io/api/v1/email_subscribe/${email}/`).then(({data}) => {
+            axios.post(`https://dton.io/api_status/v1/email_subscribe/${email}/`).then(({data}) => {
                 if(data?.success){
                     setSuccess('Subscribe success!')
                     //setInterval(()=> setSuccess(''), 5000)

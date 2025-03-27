@@ -89,7 +89,7 @@ export const Uptime = ({title}) => {
     const [days, setDays] = useState(1)
     const {md} = useWindowSize()
    
-    const {data,loading,error, load} = useFetchData(`https://status.dton.io/api/v1/advanced/${resources[title]}/${days}/`)
+    const {data,loading,error, load} = useFetchData(`https://dton.io/api_status/v1/advanced/${resources[title]}/${days}/`)
 
     useEffect(()=> {
         load();
@@ -115,7 +115,7 @@ export const Uptime = ({title}) => {
             <DataBlock title='Available' formatValue={percentToString} avg="success_normalized" loading={loading} error={error} data={data} field="success_normalized"/>
             <DataBlock title='Index latency' formatValue={indexLatencyToString} avg="avg_index_latency" data={data} loading={loading} error={error} field="normalized_index_latency"/>
              <DataBlock title='Call latency' formatValue={callLatencyToString} avg="avg_call_latency" data={data} loading={loading} error={error} field="normalized_call_latency" />
-            <PercentageBlock service={'graphql'}/>
+            <PercentageBlock service={resources[title]}/>
         </Flex>
     </Flex>
 }

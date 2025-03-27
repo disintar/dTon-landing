@@ -14,7 +14,7 @@ const valueStyle = {margin: 0}
 
 export const PercentageBlock = ({service}) => {
  
-    const {data, loading, error, load} = useFetchData(`https://status.dton.io/api/v1/success_percentages/${service}/`)
+    const {data, loading, error, load} = useFetchData(`https://dton.io/api_status/v1/success_percentages/${service}/`)
 
 
     useEffect(()=>{load()},[])

@@ -4,7 +4,7 @@ import { Flex, Skeleton, Spin, Typography } from "antd"
 import { callLatencyToString, indexLatencyToString } from "../../helpers/strings"
 
 export const Nodes = () => {
-    const {data, loading, error, load} = useFetchData('https://status.dton.io/api/v1/liteservers/')
+    const {data, loading, error, load} = useFetchData('https://dton.io/api_status/v1/liteservers/')
 
     useEffect(() => {
         load()
@@ -17,12 +17,12 @@ export const Nodes = () => {
         <tr>
             <th>№</th>
             <th>Last block</th>
-            <th>Answer latency</th>
+            <th>Requests #</th>
         </tr>
         </thead>
         <tbody>
         { data && data.map(item => {
-        const {title, index_latency, call_latency} = item;
+        const {title, index_latency, requests_amount} = item;
             return  <tr key={title}>
                         <td >
                             <Flex align="center" justify="center" style={{padding: '15px 20px'}}>{title}</Flex>
@@ -34,7 +34,7 @@ export const Nodes = () => {
                         </td>
                         <td>
                             <Flex align="center" justify="center" style={{padding: '15px 20px'}}>
-                                {callLatencyToString(call_latency)}
+                                {requests_amount}
                             </Flex>
                         </td>
                     </tr>})}

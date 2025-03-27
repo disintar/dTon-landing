@@ -3,7 +3,7 @@ import useFetchData from "../../helpers/useFetchData"
 import { Flex, Skeleton, Spin, Typography } from "antd"
 
 export const Servers = () => {
-    const {data, loading, error, load} = useFetchData('https://status.dton.io/api/v1/servers/')
+    const {data, loading, error, load} = useFetchData('https://dton.io/api_status/v1/servers/')
 
     useEffect(() => {
         load()
@@ -20,9 +20,6 @@ export const Servers = () => {
                             <Flex style={{padding: '15px 20px', }}>{title}</Flex></td>
                         <td>
                         <Flex align="center" justify="space-between">
-                            <Flex style={{padding: '15px 20px'}}>
-                                {ping} ping
-                            </Flex>
                             <Flex align="center" justify="center" style={{height: 20, width: 20, padding: '15px 20px'}}>
                                 <span className={`circle ${color}`}/>
                             </Flex>
