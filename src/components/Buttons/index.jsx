@@ -19,7 +19,7 @@ export const BookCall = ({style={}, size = 'small'}) => {
         },
     }
 
-    return <button style={{...sizes[size], ...style }} onClick={()=> window.open('https://t.me/tvorogme', '_blank')} className='btn btn-primary' >
+    return <button style={{...sizes[size], ...style }} onClick={()=> window.open('mailto:andrey@dton.io', '_blank')} className='btn btn-primary' >
        Book Call
     </button>
 }
@@ -88,7 +88,7 @@ export const GoToStatusPage = ({style}) => {
 }
 
 export const StartUsing = ({style, href}) => {
-    return <button onClick={()=> window.open(href,'_blank')} style={style} className='btn btn-blue'>Start using</button>
+    return <button onClick={()=> window.open(href,'_blank')} style={style} className='btn btn-blue'>Explore now</button>
 }
 
 export const Dtontech = () => {

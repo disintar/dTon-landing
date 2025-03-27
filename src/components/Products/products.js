@@ -2,8 +2,20 @@
 export const assetImage = src => `/products/${src}`
 
 export const products = [
-    {   id: 1,
-        title: 'GraphqlAPI',
+    {
+        id: 1,
+        iconStyle: {borderRadius: 5},
+        title: 'Assets Portfolio',
+        image: 'dassets.webp',
+        info: {
+            title: 'Manage all TON wallets and apps assets in one place',
+            advantages: ['Enterprise' ],
+            image: 'forum.webp',
+            href: 'https://t.me/dassets_bot',
+        }
+    },
+    {   id: 2,
+        title: 'GraphQL API',
         image: 'GraphqlAPI.webp',
         info: {
             title: 'Custom requests to blockchain database',
@@ -13,38 +25,26 @@ export const products = [
         }
     },
     {
-        id: 2,
-        title: '@liteserver_bot',
+        id: 3,
+        title: 'Lite Servers',
         image: '@liteserver_bot.webp',
         info: {
-            title: 'Stable private liteclient with rate limits',
-            advantages: ['Small teams','Enterprise' ],
+            title: 'Private LiteServers',
+            advantages: ['Small teams','Enterprise'],
             image: 'liteserver.webp',
-            href: 'https://t.me/liteserver_bot',
-        }
-    },
-    {
-        id: 3,
-        iconStyle: {borderRadius: 5},
-        title: '@dtonforum',
-        image: '@dtonforum.webp',
-        info: {
-            title: 'Custom analytics and dashboards for projects',
-            advantages: ['Enterprise' ],
-            image: 'forum.webp',
-            href: 'https://t.me/dtonforum',
+            href: 'https://t.me/dtontech_bot',
         }
     },
     {
         id: 4,
-        title: 'Disintar.io',
-        iconStyle: {borderRadius: 5, border: '1px solid #5AC8FA'},
-        image: 'Disintario.webp',
+        iconStyle: {borderRadius: 5},
+        title: 'Assets Rest API',
+        image: '@dtonforum.webp',
         info: {
-            title: 'TON NFT mint, custom smart contracts, integrations',
-            advantages: ['Enterprise'],
-            image: 'disintar.webp',
-            href: 'https://disintar.io',
+            title: 'Easy to use API for Net Worth and DeFi assets',
+            advantages: ['Enterprise' ],
+            image: 'forum.webp',
+            href: 'https://docs.dton.io/about-assets',
         }
     },
     {
