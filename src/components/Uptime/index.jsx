@@ -7,8 +7,8 @@ import { callLatencyToString, indexLatencyToString, percentToString } from "../.
 import { useWindowSize } from "../../helpers/useWindowSize";
 
 const resources = {
-    'dton.io': 'graphql',
-    '@literserver_bot':'liteserver'
+    'GraphQL': 'graphql',
+    'Private Lite Servers':'liteserver'
 }
 
 const activeStyle = {
