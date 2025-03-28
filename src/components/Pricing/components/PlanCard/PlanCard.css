@@ -88,6 +88,16 @@
   height: 30px
 }
 
+.plan-main-action:hover {
+  box-shadow: 0px 0px 15px 0px #C09BF1;
+  background-color: #9579f0 !important;
+}
+
+.dedicated-btn:hover {
+  box-shadow: 0px 0px 15px 0px #C09BF1;
+  background-color: #40C3FF !important;
+}
+
 @media (max-width: 600px) {
   .plan-card {
     width: 100% !important;
