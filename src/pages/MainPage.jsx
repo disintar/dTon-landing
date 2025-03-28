@@ -40,23 +40,24 @@ export const MainPage = () => {
                     <Products/>
                 </div>
             </Flex>
-  
-            <Flex  style={{...contentStyle,
-            backgroundColor: '#F3F3F3',
-            position:'relative'
-            }}>
-                <Divider/>
-                <div id="api-status" style={centerStyle}>
-                    <APIStatus/>
-                </div>
-            </Flex>
             <Flex style={{
-              backgroundColor: "white",
+              backgroundColor: "#F3F3F3",
+              position: 'relative'
             }}>
               <Divider/>
               <div id="pricing" style={centerStyle}>
                 <Pricing />
               </div>
+            </Flex>
+            <Flex  style={{
+              ...contentStyle,
+              backgroundColor: 'white',
+              position:'relative'
+            }}>
+                <Divider/>
+                <div id="api-status" style={centerStyle}>
+                    <APIStatus/>
+                </div>
             </Flex>
             <Flex  style={{
               ...contentStyle,

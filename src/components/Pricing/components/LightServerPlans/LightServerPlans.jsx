@@ -32,7 +32,7 @@ const plans = [
     monthlyPrice: '40.4 TON monthly',
     features: ['60 RPS', '2 Servers'],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -44,7 +44,7 @@ const plans = [
     monthlyPrice: '202.02 TON monthly',
     features: ['400 RPS', '2 Servers'],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -59,7 +59,7 @@ const plans = [
       'Archive Servers',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],

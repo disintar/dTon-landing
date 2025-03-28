@@ -1,6 +1,4 @@
-import { Tooltip } from "antd";
 import PlanCard from "../PlanCard/PlanCard";
-import { InfoCircleOutlined } from "@ant-design/icons";
 
 const plans = [
   {
@@ -29,7 +27,7 @@ const plans = [
       '2 sec time limit per query',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -48,7 +46,7 @@ const plans = [
       '5 sec time limit per query',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -67,7 +65,7 @@ const plans = [
       '10 sec time limit per query',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],

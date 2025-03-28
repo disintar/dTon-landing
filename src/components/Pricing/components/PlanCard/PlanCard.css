@@ -34,6 +34,7 @@
   align-items: center;
   font-weight: 400;
   font-size: 13px;
+  line-height: 14px;
   color: #1E1E1E;
 }
 
@@ -58,6 +59,7 @@
   border-radius: 8px;
   font-weight: 400;
   font-size: 12px;
+  line-height: 14px;
   height: 21px;
   border: none;
   color: #1E1E1E;
@@ -82,6 +84,7 @@
   margin-top: 15px;
   font-weight: 400;
   font-size: 14px;
+  line-height: 14px;
   height: 30px
 }
 
