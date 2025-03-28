@@ -3,56 +3,67 @@ import PlanCard from "../PlanCard/PlanCard";
 
 const plans = [
   {
+    title: 'TestNet',
+    price: '15 USD',
+    monthlyPrice: '3.79 TON monthly',
+    features: ['10 RPS', 'Testnet Server'],
+    packages: [
+      { label: '1 month', isActive: true },
+      { label: '6 months' },
+      { label: '12 months', discount: '-5% discount' },
+    ],
+    mainActionLabel: 'Choose TestNet 15 USD',
+  },
+  {
     title: 'Miner',
-    price: '30 USD',
-    monthlyPrice: '4 TON monthly',
+    price: '32 USD',
+    monthlyPrice: '8.08 TON monthly',
     features: ['10 RPS', '2 Servers'],
     packages: [
       { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
-    mainActionLabel: 'Choose Miner 30 USD',
+    mainActionLabel: 'Choose Miner 32 USD',
   },
   {
     title: 'Merkle',
-    price: '145 USD',
-    monthlyPrice: '20 TON monthly',
+    price: '160 USD',
+    monthlyPrice: '40.4 TON monthly',
     features: ['60 RPS', '2 Servers'],
     packages: [
       { label: '1 month' },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
-    mainActionLabel: 'Choose Merkle 145 USD',
+    mainActionLabel: 'Choose Merkle 160 USD',
   },
   {
     title: 'Fift',
-    price: '710 USD',
-    monthlyPrice: '4 TON monthly',
+    price: '800 USD',
+    monthlyPrice: '202.02 TON monthly',
     features: ['400 RPS', '2 Servers'],
     packages: [
       { label: '1 month' },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
-    mainActionLabel: 'Choose Fift 710 USD',
+    mainActionLabel: 'Choose Fift 800 USD',
   },
   {
     title: 'Archive',
-    price: '105 USD',
-    monthlyPrice: '16 TON monthly',
+    price: '128 USD',
+    monthlyPrice: '32.32 TON monthly',
     features: [
       '20 RPS',
       'Archive Servers',
-      'No send_message',
     ],
     packages: [
       { label: '1 month' },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
-    mainActionLabel: 'Choose Archive 342 USD',
+    mainActionLabel: 'Choose Archive 128 USD',
   },
 ];
 
