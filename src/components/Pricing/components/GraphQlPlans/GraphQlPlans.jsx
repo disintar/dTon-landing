@@ -31,7 +31,7 @@ const plans = [
       'Page size limit: 150',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -51,7 +51,7 @@ const plans = [
       'Page size limit: 100',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -71,7 +71,7 @@ const plans = [
       'Page size limit: 200',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
@@ -83,12 +83,7 @@ const plans = [
     monthlyPrice: '16 TON monthly',
     features: [
       '20 RPS',
-      <>
-        Archive Servers{' '}
-        <Tooltip title="These are archive-only servers">
-          <InfoCircleOutlined style={{ color: '#999' }} />
-        </Tooltip>
-      </>,
+      'Archive Servers',
       'No send_message',
       'Basic custom requests to blockchain',
       'Aggregation requests to blockchain',
@@ -97,7 +92,7 @@ const plans = [
       'Page size limit: 250',
     ],
     packages: [
-      { label: '1 month' },
+      { label: '1 month', isActive: true },
       { label: '6 months' },
       { label: '12 months', discount: '-5% discount' },
     ],
