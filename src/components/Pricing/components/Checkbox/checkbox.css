@@ -32,3 +32,7 @@
 :where(.css-dev-only-do-not-override-9x2ruj).ant-segmented .ant-segmented-thumb {
   background-color: #9579F0 !important; /* soft purple */
 }
+
+.ant-segmented-item .ant-segmented-item-selected {
+  background-color: #9579F0 !important; /* soft purple */
+}
