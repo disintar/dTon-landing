@@ -8,6 +8,7 @@ import { About } from '../components/About';
 import { useWindowSize } from '../helpers/useWindowSize';
 import { LayoutWrapper } from "../Layout";
 import { AlwaysInTouch } from "../components/AlwaysInTouch";
+import { Pricing } from "../components/Pricing";
 
 const contentStyle = {
     textAlign: 'center',
@@ -49,7 +50,18 @@ export const MainPage = () => {
                     <APIStatus/>
                 </div>
             </Flex>
-            <Flex  style={contentStyle}>
+            <Flex style={{
+              backgroundColor: "white",
+            }}>
+              <Divider/>
+              <div id="pricing" style={centerStyle}>
+                <Pricing />
+              </div>
+            </Flex>
+            <Flex  style={{
+              ...contentStyle,
+              backgroundColor: '#F3F3F3',
+            }}>
                 <div id='about' style={centerStyle}>
                   <About/>
                 </div>

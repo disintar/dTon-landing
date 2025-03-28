@@ -1,0 +1,26 @@
+.custom-segmented {
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: white;
+  padding: 2px;
+  width: max-content;
+}
+
+.custom-segmented .ant-segmented-thumb-motion {
+  transition: none !important; /* Disable sliding animation */
+}
+
+.custom-segmented .ant-segmented-item {
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #8B8B8B;
+  transition: none !important;
+}
+
+.custom-segmented .ant-segmented-item-label[aria-selected="true"] {
+  background-color: #9579F0 !important; /* soft purple */
+  color: white !important;
+  border-radius: 10px;
+}
