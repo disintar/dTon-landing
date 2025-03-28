@@ -17,16 +17,16 @@ export default function DedicatedPlan() {
           <CheckCircleFilled className="plan-check-icon" />Solution</div>
       </Space>
       <Button 
-        type="primary"
+        type="primary dedicated-btn"
         block 
         onClick={() =>
           window.open('https://t.me/tvorogme', '_blank')
         }
-        style={{ 
+        style={{
           backgroundColor: '#40C3FF', 
-          borderColor: '#FFFFFF', 
+          color: 'white',
           borderRadius: 10, 
-          marginTop: 115
+          marginTop: 'auto'
         }}
       >
         Contact
