@@ -17,8 +17,9 @@ export default function DedicatedPlan() {
           <CheckCircleFilled className="plan-check-icon" />Solution</div>
       </Space>
       <Button 
-        type="primary dedicated-btn"
+        type="primary"
         block 
+        className='btn-blue'
         onClick={() =>
           window.open('https://t.me/tvorogme', '_blank')
         }
