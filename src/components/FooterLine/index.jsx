@@ -1,9 +1,11 @@
 import { Flex, Typography } from "antd"
-import tgIcon from './tg.svg'
-import ghIcon from './gh.svg'
-import xIcon from './x.svg'
-import emailIcon from './email.svg'
 import { useWindowSize } from "../../helpers/useWindowSize"
+import TgIcon from "./icons/TgIcon"
+import GithubIcon from "./icons/GithubIcon"
+import XIcon from "./icons/XIcon"
+import MailIcon from "./icons/MailIcon"
+
+import './footer.css';
 
 const textStyle = {
     fontSize: 16,
@@ -20,21 +22,29 @@ export const FooterLine = () => {
     style={{height: isMobile ? 'auto' : 50, padding: 25, backgroundColor:'#101014'}} 
     justify='space-around' align={isMobile ? 'end' :'center'}>
         <Flex  gap={25}>
-            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
+            <Typography.Link className="footer-menu-item" href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Terms
             </Typography.Link>
-            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
+            <Typography.Link className="footer-menu-item" href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Privacy
             </Typography.Link>
-            <Typography.Link href="https://t.me/dtontech" target='_blank' style={textStyle}>
+            <Typography.Link className="footer-menu-item" href="https://t.me/dtontech" target='_blank' style={textStyle}>
                 Support
             </Typography.Link>
         </Flex>
         <Flex gap={25}>
-           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://t.me/dtonforum', '_blank')} src={tgIcon}/>
-           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://github.com/disintar', '_blank')} src={ghIcon}/>
-           <img style={{cursor: 'pointer'}} onClick={()=> window.open('https://x.com/disintar_io', '_blank')} src={xIcon}/>
-           <img style={{cursor: 'pointer'}} onClick={()=> window.open('hi@head-labs.com', '_blank')} src={emailIcon}/>
+            <Typography.Link className="footer-icon" href="https://t.me/dtonforum" target="_blank">
+                <TgIcon />
+            </Typography.Link>
+            <Typography.Link className="footer-icon" href="https://github.com/disintar" target="_blank">
+                <GithubIcon />
+            </Typography.Link>
+            <Typography.Link className="footer-icon" href="https://x.com/disintar_io" target="_blank">
+                <XIcon />
+            </Typography.Link>
+            <Typography.Link className="footer-icon" href="mailto:hi@head-labs.com" target="_blank">
+                <MailIcon />
+            </Typography.Link>
         </Flex>
 
         <Typography.Paragraph style={{...textStyle, margin: 0}}>

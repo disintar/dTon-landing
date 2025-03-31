@@ -1,10 +1,13 @@
 import React, {useState} from "react"
 import {dton_logo} from './logo'
-import {Flex, Typography} from "antd"
+import {Dropdown, Flex, Menu, Typography} from "antd"
 import Lottie from "react-lottie"
 import {ConnectAndTry} from "../Buttons"
 import {useWindowSize} from '../../helpers/useWindowSize'
 import {MenuOutlined, CloseOutlined} from '@ant-design/icons'
+import DropdownIcon from "./icons/DropdownIcon"
+
+import './header.css'
 
 const BURGER_BREAKPOINT = 835
 
@@ -32,26 +35,65 @@ const mobileMenuStyle = {
 
 const iconStyle = {fontSize: 24, color: '#fff'}
 
-const Links = ({mobile, style}) => {
+const Links = ({mobile, style, setShowMenu}) => {
+    const resourcesMenu = {
+        items: [
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://docs.dton.io/">Docs</a>,
+                key: 'docs',
+            },
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://dton.io/graphql/">GraphQL</a>,
+                key: 'graphql',
+            },
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://t.me/dtontech_bot">API Keys</a>,
+                key: 'api-keys',
+            },
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://blog.dton.io/">Blog</a>,
+                key: 'blog',
+            },
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://tech.dton.io/status">Status</a>,
+                key: 'status',
+            },
+            {
+                label: <a className="resource-link-item" target="_blank" href="https://t.me/dtontech">Support</a>,
+                key: 'support',
+            },
+        ]
+    }
+
     return <Flex vertical={mobile} gap={30} style={style}>
-        <Typography.Link href="https://docs.dton.io/" style={linkStyle}>
-            Docs
+        <Typography.Link className="menu-item" onClick={() => setShowMenu(false)} href="#products" style={linkStyle}>
+            Products
         </Typography.Link>
-        <Typography.Link href="https://dton.io/graphql/" style={linkStyle}>
-            GraphQL
+        <Typography.Link className="menu-item" onClick={() => setShowMenu(false)} href="#pricing" style={linkStyle}>
+            Pricing
         </Typography.Link>
-        <Typography.Link href="https://t.me/dtontech_bot" style={linkStyle}>
-            API Keys
+        <Typography.Link className="menu-item" onClick={() => setShowMenu(false)} href="#api-status" style={linkStyle}>
+            API Status
         </Typography.Link>
-        <Typography.Link href="https://blog.dton.io/" style={linkStyle}>
-            Blog
+        <Typography.Link className="menu-item" onClick={() => setShowMenu(false)} href="#about" style={linkStyle}>
+            About Us
         </Typography.Link>
-        <Typography.Link href="https://tech.dton.io/status" style={linkStyle}>
-            Status
+        
+      <Dropdown className="dropdown" menu={resourcesMenu} placement="bottom">
+        <Typography.Link 
+            className="menu-item"
+            style={{ 
+                ...linkStyle, 
+                cursor: 'pointer',
+                display: 'inline-flex',
+                gap: 5,
+                alignItems: 'center', 
+            }}
+        >
+          Resources
+          <DropdownIcon />
         </Typography.Link>
-        <Typography.Link href="https://t.me/dtontech" style={linkStyle}>
-            Support
-        </Typography.Link>
+      </Dropdown>
     </Flex>
 }
 export const HeaderBlock = () => {
@@ -86,7 +128,7 @@ export const HeaderBlock = () => {
                     dTon
                 </div>
             </Flex>
-            <Links style={mobileHiddenStyle}/>
+            <Links setShowMenu={setShowMenu} style={mobileHiddenStyle} />
             <ConnectAndTry style={mobileHiddenStyle} size="small"/>
             <BurgerIcon onClick={() =>
                 setShowMenu(prev => !prev)} style={{...mobileVisibleStyle, ...iconStyle}}/>
@@ -97,7 +139,7 @@ export const HeaderBlock = () => {
                                ...mobileVisibleStyle,
                                ...mobileMenuStyle
                            }}>
-            <Links mobile/>
+            <Links mobile setShowMenu={setShowMenu} />
             <ConnectAndTry style={{alignSelf: 'center', color: '#FFF', width: '100%', fontSize: 18, fontWeight: 500}}/>
         </Flex>}
     </>
